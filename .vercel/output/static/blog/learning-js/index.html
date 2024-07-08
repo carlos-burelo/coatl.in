@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v4.11.5"><title>Astro</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><style>:root{--primary: #5c87f6;--bg: #111318;--bg-card: #20242d;--background-navbar: #111318d0;--background-dialog-backdrop: #0a0b0eb1;--background-code-block: #0a0b0eb1;--background-dialog: #111318;--bc: #20242d;--icon-color: #8994ae;--text-color: #8994ae;--text-primary: #e2eafd;--color-link: #acb5c7;--bg-link-hover: #5c88f60c;--bg-emphasis: #5c88f612;--z-index-body: 0;--z-index-navbar: 100;--z-index-dialog: 200;--body-inner-padding: 1rem}@media (width > 430px){:root{--body-inner-padding: 2rem}}@media (width > 900px){:root{--body-inner-padding: 3rem}}@media (width > 1200px){:root{--body-inner-padding: 18rem}}@media (width > 1600px){:root{--body-inner-padding: 30rem}}@font-face{font-family:IBM Plex Sans;src:url(/ibm.woff2) format("woff2");text-rendering:optimizeLegibility}@font-face{font-family:IBM Plex Sans;src:url(/ibm-italic.woff2) format("woff2");text-rendering:optimizeLegibility;font-style:italic}*,*:before,*:after{box-sizing:border-box;margin:0;padding:0}::selection{background-color:var(--bg-emphasis);color:var(--primary)}html{color-scheme:dark;accent-color:var(--primary);scroll-behavior:smooth;font-family:IBM Plex Sans,sans-serif,system-ui}body{background-color:var(--bg);z-index:var(--z-index-body)}main,nav{padding-inline:var(--body-inner-padding)}svg{width:1.5em;height:1.5em}a{text-decoration:none}p{color:var(--text-color);line-height:1.8}h1,h2,h3,h4,h5,h6{color:var(--text-primary)}a[data-astro-cid-mpczply3]{padding:.75em;border-radius:.5em;display:grid;grid-auto-flow:column;justify-content:start;gap:1em;color:var(--color-link);transition:background-color .15s ease-in-out,color .15s ease-in-out}i[data-astro-cid-mpczply3]{font-size:.7em;stroke-width:2.5;display:grid;place-content:center}a[data-astro-cid-mpczply3]:hover{background-color:var(--bg-link-hover);color:var(--primary)}dialog[data-astro-cid-msppwylm]{min-width:350px;padding:.5em;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);border:solid 1px var(--bc);background-color:var(--background-dialog);border-radius:.5em;animation:.3s cubic-bezier(.16,1,.3,1) 0s 1 normal forwards running fadeIn}dialog[data-astro-cid-msppwylm]:not([open]){pointer-events:none;opacity:0}dialog[data-astro-cid-msppwylm]>div[data-astro-cid-msppwylm]{display:grid;gap:1em}@keyframes fadeIn{0%{opacity:0}to{opacity:1}}dialog[data-astro-cid-msppwylm]::backdrop{inset:0;backdrop-filter:blur(4px);background-color:var(--background-dialog-backdrop);transition:background-color .2s ease-in-out}section[data-astro-cid-msppwylm]{display:grid;gap:.5em}h4[data-astro-cid-msppwylm]{padding-left:.5em}section[data-astro-cid-msppwylm]>div[data-astro-cid-msppwylm]{display:grid;gap:.1em}button[data-astro-cid-edh4vpt2]{background-color:var(--bg);border-radius:.5em;border:solid 1px var(--bc);padding:.3em;display:grid;place-content:center;font-size:1.1em;stroke-width:1.5;color:var(--icon-color)}@keyframes scroll-collapse{to{height:60px;border:solid 1px var(--bc)}}nav[data-astro-cid-qccqnvig]{top:0;display:grid;grid-auto-flow:column;justify-content:space-between;align-content:center;background-color:var(--background-navbar);backdrop-filter:blur(5em);position:sticky;animation:scroll-collapse linear both .2s;animation-timeline:scroll();height:100px;animation-range:0px 100px;border:solid 1px transparent;z-index:var(--z-index-navbar)}h1[data-astro-cid-qccqnvig]{display:grid;place-content:center}.astro-route-announcer{position:absolute;left:0;top:0;clip:rect(0 0 0 0);clip-path:inset(50%);overflow:hidden;white-space:nowrap;width:1px;height:1px}
+pre[data-astro-cid-5eruibn5]{background-color:var(--background-code-block)!important;backdrop-filter:blur(1px);padding:1em;border-radius:.5em}
+</style><script type="module" src="/_astro/hoisted.BaYXsS4H.js"></script></head> <body> <nav data-astro-cid-qccqnvig> <h1 data-astro-cid-qccqnvig>Carlos Burelo</h1> <button aria-label="Command" id="menu-button" data-astro-cid-edh4vpt2> <svg viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path stroke="currentColor"
+        d="M18.0713 3.22449C17.2756 3.22449 16.5126 3.54056 15.95 4.10317C15.3874 4.66578 15.0713 5.42884 15.0713 6.22449V18.2245C15.0713 19.0201 15.3874 19.7832 15.95 20.3458C16.5126 20.9084 17.2756 21.2245 18.0713 21.2245C18.8669 21.2245 19.63 20.9084 20.1926 20.3458C20.7552 19.7832 21.0713 19.0201 21.0713 18.2245C21.0713 17.4288 20.7552 16.6658 20.1926 16.1032C19.63 15.5406 18.8669 15.2245 18.0713 15.2245H6.07129C5.27564 15.2245 4.51258 15.5406 3.94997 16.1032C3.38736 16.6658 3.07129 17.4288 3.07129 18.2245C3.07129 19.0201 3.38736 19.7832 3.94997 20.3458C4.51258 20.9084 5.27564 21.2245 6.07129 21.2245C6.86694 21.2245 7.63 20.9084 8.19261 20.3458C8.75522 19.7832 9.07129 19.0201 9.07129 18.2245V6.22449C9.07129 5.42884 8.75522 4.66578 8.19261 4.10317C7.63 3.54056 6.86694 3.22449 6.07129 3.22449C5.27564 3.22449 4.51258 3.54056 3.94997 4.10317C3.38736 4.66578 3.07129 5.42884 3.07129 6.22449C3.07129 7.02014 3.38736 7.7832 3.94997 8.34581C4.51258 8.90842 5.27564 9.22449 6.07129 9.22449H18.0713C18.8669 9.22449 19.63 8.90842 20.1926 8.34581C20.7552 7.7832 21.0713 7.02014 21.0713 6.22449C21.0713 5.42884 20.7552 4.66578 20.1926 4.10317C19.63 3.54056 18.8669 3.22449 18.0713 3.22449Z"
+        stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dashoffset="0px"
+        stroke-dasharray="1px 1px">
+    </path>
+</svg> </button> <dialog id="command-modal" data-astro-cid-msppwylm> <div data-astro-cid-msppwylm> <section data-astro-cid-msppwylm> <h4 data-astro-cid-msppwylm>Navigation</h4> <div data-astro-cid-msppwylm> <a href="/" data-astro-cid-mpczply3> <i data-astro-cid-mpczply3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+    <polyline points="12 5 19 12 12 19"></polyline>
+</svg></i> <span data-astro-cid-mpczply3>Home</span> </a>  <a href="/blog" data-astro-cid-mpczply3> <i data-astro-cid-mpczply3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+    <polyline points="12 5 19 12 12 19"></polyline>
+</svg></i> <span data-astro-cid-mpczply3>Blog</span> </a>  <a href="/snippets" data-astro-cid-mpczply3> <i data-astro-cid-mpczply3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+    stroke-linejoin="round">
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+    <polyline points="12 5 19 12 12 19"></polyline>
+</svg></i> <span data-astro-cid-mpczply3>Snippets</span> </a>  </div> </section> <section data-astro-cid-msppwylm> <h4 data-astro-cid-msppwylm>Links</h4> <div data-astro-cid-msppwylm> <a href="/CV.pdf" target="_blank" data-astro-cid-mpczply3> <i data-astro-cid-mpczply3><svg
+    viewBox="0 0 25 24"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    stroke="currentColor"
+  >
+    <path
+      d="M22.4355 18.9995C22.4355 19.5299 22.2248 20.0387 21.8498 20.4137C21.4747 20.7888 20.966 20.9995 20.4355 20.9995H4.43555C3.90511 20.9995 3.39641 20.7888 3.02133 20.4137C2.64626 20.0387 2.43555 19.5299 2.43555 18.9995V4.99951C2.43555 4.46908 2.64626 3.96037 3.02133 3.5853C3.39641 3.21023 3.90511 2.99951 4.43555 2.99951H9.43555L11.4355 5.99951H20.4355C20.966 5.99951 21.4747 6.21023 21.8498 6.5853C22.2248 6.96037 22.4355 7.46908 22.4355 7.99951V18.9995Z"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg></i> <span data-astro-cid-mpczply3>CV</span> </a>  <a href="//github.com/carlos-burelo" target="_blank" data-astro-cid-mpczply3> <i data-astro-cid-mpczply3><svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+  </svg></i> <span data-astro-cid-mpczply3>GitHub</span> </a>  </div> </section> </div> </dialog>    </nav>  <main>  <h1>Conceptos básicos de javascript para principiantes y no tan principiantes</h1> <h2 id="introducción">Introducción</h2>
+<p>Personalmente creo que es de vital importancia entender algunos conceptos clave de javascript, como por ejemplo, el scope, la mutación, las funciones y los objetos, etc.
+ya que estos nos proveen de diversas características y funciones que nos permiten trabajar con el lenguaje de forma mas sencilla y eficiente, por eso me he dado a la tarea de agrupar algunas de estas características de javascript que lo hacen el lenguaje popular que es hoy, y tratare de simplificar lo mas posible el tema para que pueda ser entendido por los demás 😀.</p>
+<h2 id="características-del-lenguaje">Características del lenguaje</h2>
+<p>Como cualquier otro lenguaje de programación, javascript esta dotado de diversas características y peculiaridades que son las que definen con que facilidad podremos trabajar al momento de crear nuestras aplicaciones, siendo uno de los lenguajes mas populares actualmente veamos que nos puede ofrecer.</p>
+<h3 id="scope">Scope 🟦</h3>
+<p>El <strong>scope</strong> en palabras sencillas lo podemos entender como un <em>ambiente</em> o <em>entorno</em> en el que se encuentra una variable, una función, una clase, etc.</p>
+<p>Dentro de este entorno cualquier declaración de variable o función que se haga sera accesible solo dentro del mismo.</p>
+<pre class="astro-code one-dark-pro astro-5eruibn5" style="background-color:#282c34;color:#abb2bf;overflow-x:auto" tabindex="0" data-language="js" data-astro-cid-5eruibn5>    <code><span class="line"><span style="color:#C678DD">const</span><span style="color:#E5C07B"> name</span><span style="color:#56B6C2"> =</span><span style="color:#98C379"> &#39;John&#39;</span></span>
+<span class="line"><span style="color:#C678DD">const</span><span style="color:#E5C07B"> age</span><span style="color:#56B6C2"> =</span><span style="color:#D19A66"> 23</span></span>
+<span class="line"><span style="color:#C678DD">const</span><span style="color:#E5C07B"> country</span><span style="color:#56B6C2"> =</span><span style="color:#98C379"> &#39;US&#39;</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">// Todas las declaraciones anteriores se encuentran dentro del</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">// scope &quot;global&quot; por lo que podemos acceder a ellas desde cualquier lugar.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">function</span><span style="color:#61AFEF"> getAge</span><span style="color:#ABB2BF">() {</span></span>
+<span class="line"><span style="color:#C678DD">    return</span><span style="color:#E06C75"> age</span><span style="color:#7F848E;font-style:italic"> // 23</span></span>
+<span class="line"><span style="color:#ABB2BF">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">if</span><span style="color:#ABB2BF"> (</span><span style="color:#E06C75">age</span><span style="color:#56B6C2"> &gt;</span><span style="color:#D19A66"> 18</span><span style="color:#ABB2BF">) {</span></span>
+<span class="line"><span style="color:#C678DD">  const</span><span style="color:#E5C07B"> isOlder</span><span style="color:#56B6C2"> =</span><span style="color:#D19A66"> true</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">  // La constante &quot;isOlder&quot; solo esta disponible dentro del scope &quot;if&quot;</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">  // por lo que no podemos acceder a ella desde fuera del scope, por ejemplo.</span></span>
+<span class="line"><span style="color:#ABB2BF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E5C07B">console</span><span style="color:#ABB2BF">.</span><span style="color:#61AFEF">log</span><span style="color:#ABB2BF">(</span><span style="color:#E06C75">isOlder</span><span style="color:#ABB2BF">) </span><span style="color:#7F848E;font-style:italic">// undefined</span></span>
+<span class="line"></span></code>
+</pre> 
+<h2 id="mutación-️">Mutación ☢️</h2>
+<p>La <strong>mutación</strong> es otro concepto que nos ayuda a entender el ciclo de vida de las variables en javascript, es decir, cuando una variable es mutada, esta puede cambiar de valor y esto puede causar un comportamiento inesperado si no sabemos en que punto de nuestra aplicación hemos mutado su valor, por ejemplo:</p>
+<pre class="astro-code one-dark-pro astro-5eruibn5" style="background-color:#282c34;color:#abb2bf;overflow-x:auto" tabindex="0" data-language="js" data-astro-cid-5eruibn5>    <code><span class="line"><span style="color:#C678DD">const</span><span style="color:#E5C07B"> fruits</span><span style="color:#56B6C2"> =</span><span style="color:#ABB2BF"> [</span><span style="color:#98C379">&#39;apple&#39;</span><span style="color:#ABB2BF">, </span><span style="color:#98C379">&#39;banana&#39;</span><span style="color:#ABB2BF">, </span><span style="color:#98C379">&#39;orange&#39;</span><span style="color:#ABB2BF">]</span></span>
+<span class="line"><span style="color:#C678DD">const</span><span style="color:#E5C07B"> orange</span><span style="color:#56B6C2"> =</span><span style="color:#E5C07B"> fruits</span><span style="color:#ABB2BF">.</span><span style="color:#61AFEF">pop</span><span style="color:#ABB2BF">() </span><span style="color:#7F848E;font-style:italic">// [&quot;orange&quot;]</span></span>
+<span class="line"><span style="color:#E5C07B">console</span><span style="color:#ABB2BF">.</span><span style="color:#61AFEF">log</span><span style="color:#ABB2BF">(</span><span style="color:#E06C75">fruits</span><span style="color:#ABB2BF">) </span><span style="color:#7F848E;font-style:italic">// [&quot;apple&quot;, &quot;banana&quot;]</span></span>
+<span class="line"></span></code>
+</pre> 
+<p>Como podemos ver, al utilizar el método <code>.pop(){:js}</code> estamos obteniendo el ultimo valor de el arreglo <code>fruits{:js}</code>, pero a su vez este mismo ha perdido su ultimo valor, por lo que al momento de imprimir el valor de <code>fruits{:js}</code>, el elemento <code>&quot;orange&quot;{:.str}</code> ya no esta disponible.</p>
+<p>En javascript tenemos métodos que mutan el valor de una variable, en este caso tomaremos de ejemplo los arreglos, como por ejemplo:</p>
+<ul>
+<li><code>.push(){:js}</code>: Agrega un elemento al final del arreglo</li>
+<li><code>.pop(){:js}</code>: Elimina el ultimo elemento del arreglo</li>
+<li><code>.shift(){:js}</code>: Elimina el primer elemento del arreglo</li>
+<li><code>.unshift(){:js}</code>: Agrega un elemento al inicio del arreglo</li>
+</ul>
+<p>Métodos que mutan el valor de un string…</p>
+<ul>
+<li><code>.concat(){:js}</code>: Concatena un string con otro string</li>
+<li><code>.slice(){:js}</code>: Extrae una porción del string</li>
+<li><code>.split(){:js}</code>: Divide un string en un arreglo</li>
+<li><code>.substr(){:js}</code>: Extrae una porción del string</li>
+<li><code>.substring(){:js}</code>: Extrae una porción del string</li>
+<li><code>.toLowerCase(){:js}</code>: Convierte el string a minúsculas</li>
+<li><code>.toUpperCase(){:js}</code>: Convierte el string a mayúsculas</li>
+</ul>
+<p>Métodos que mutan el valor de un numero…</p>
+<ul>
+<li><code>.toString(){:js}</code>: Convierte el numero en un string</li>
+<li><code>.toFixed(){:js}</code>: Convierte el numero en un string con una cantidad de decimales</li>
+<li><code>.toExponential(){:js}</code>: Convierte el numero en un string con una cantidad de decimales</li>
+<li><code>.toPrecision(){:js}</code>: Convierte el numero en un string con una cantidad de decimales</li>
+</ul>
+<p>Y métodos que mutan el valor de un objeto.</p>
+<ul>
+<li><code>.assign(){:js}</code>: Asigna un valor a una propiedad de un objeto</li>
+<li><code>.deleteProperty(){:js}</code>: Elimina una propiedad de un objeto</li>
+<li><code>.defineProperty(){:js}</code>: Define una propiedad de un objeto</li>
+<li><code>.freeze(){:js}</code>: Congela un objeto</li>
+<li><code>.seal(){:js}</code>: Se cierra un objeto</li>
+<li><code>.preventExtensions(){:js}</code>: Evita que un objeto sea extensible</li>
+<li><code>.isFrozen(){:js}</code>: Verifica si un objeto esta congelado</li>
+<li><code>.isSealed(){:js}</code>: Verifica si un objeto esta cerrado</li>
+<li><code>.isExtensible(){:js}</code>: Verifica si un objeto es extensible</li>
+</ul>
+<h2 id="funciones">Funciones 🐛➡🦋</h2>
+<p>Una función la podemos entender como una serie de instrucciones agrupadas que puede ser invocada desde casi cualquier lugar, con la finalidad de separar en módulos el código y poder reutilizarlo en diferentes partes de nuestra aplicación, la cual cuenta con una serie de características que nos permiten realizar estas tareas.</p>
+<p>Si tenemos un bloque de código que realiza alguna operación, podemos crear una función que lo haga, y luego invocarla desde cualquier lugar sin tener que repetir el mismo código, por ejemplo:</p>
+<pre class="astro-code one-dark-pro astro-5eruibn5" style="background-color:#282c34;color:#abb2bf;overflow-x:auto" tabindex="0" data-language="javascript" data-astro-cid-5eruibn5>    <code><span class="line"><span style="color:#C678DD">function</span><span style="color:#61AFEF"> sumNumbers</span><span style="color:#ABB2BF"> (</span><span style="color:#E06C75;font-style:italic">num1</span><span style="color:#ABB2BF">, </span><span style="color:#E06C75;font-style:italic">num2</span><span style="color:#ABB2BF">) {</span></span>
+<span class="line"><span style="color:#C678DD">  return</span><span style="color:#E06C75"> num1</span><span style="color:#56B6C2"> +</span><span style="color:#E06C75"> num2</span></span>
+<span class="line"><span style="color:#ABB2BF">}</span></span>
+<span class="line"><span style="color:#61AFEF">sumNumbers</span><span style="color:#ABB2BF">(</span><span style="color:#D19A66">1</span><span style="color:#ABB2BF">, </span><span style="color:#D19A66">2</span><span style="color:#ABB2BF">) </span><span style="color:#7F848E;font-style:italic">// Retorna 3</span></span>
+<span class="line"></span></code>
+</pre> 
+<p>Aquí tenemos el ejemplo mas común de como crear una función en javascript, y como invocarla, pero debemos tener ciertos factores en cuenta a la hora de crear una función, por ejemplo:</p>
+<h3 id="nombre-de-la-función"><code>Nombre de la función</code></h3>
+<p>El nombre debe ser claro, corto y consistente usando la nomenclatura <strong><em>camelCase</em></strong> en ingles, ademas de representar el propósito de la función sin agregados extras.
+Comúnmente de utilizan ciertos prefijos como <code>get</code> y <code>set</code> para indicar que la función es un <em>getter</em> o <em>setter</em> y sufijos como <em>Handler</em> para indicar que la función es un gestor de eventos.</p>
+<p>Por ejemplo:</p>
+<ul>
+<li><code>sumNumbers{:.fn}</code>: Suma dos números</li>
+<li><code>getAge{:.fn}</code>: Retorna la edad de una persona</li>
+<li><code>setAge{:.fn}</code>: Cambia la edad de una persona</li>
+<li><code>onClickHandler{:.fn}</code>: Maneja el evento click</li>
+</ul>
+<h3 id="parámetros"><code>Parámetros</code></h3>
+<p>Cuando creamos una función, podemos definir una serie de parámetros que modificaran el comportamiento de la función en base al valor de estos.</p>
+<p>Al igual que con las funciones, los parámetros deben ser consistes para identificar el valor que representa y su uso en el código, pero a diferencia de el nombre en las funciones, estos solo deben especificar el uso en su nombre sin agregados innecesarios.</p>
+<h2 id="callbacks-️">Callbacks ◀️</h2>
+<p>Los <strong>callbacks</strong> son otras de esas funcionalidades que vale la pena conocer, si bien su uso se ha reducido significativamente en los últimos años, este sigue presente en en lenguaje aunque de forma más sutil en los métodos de un arreglo o en <code>polyfills{:.const}</code>.</p>
+<p>De una manera muy sencilla, un callback no es más que una función que se ejecutará dentro de otra función una vez que la primera se termine de ejecutar, es decir, a una función le estaremos pasando otra una vez que la primera terminé.</p>
+<pre class="astro-code one-dark-pro astro-5eruibn5" style="background-color:#282c34;color:#abb2bf;overflow-x:auto" tabindex="0" data-language="js" data-astro-cid-5eruibn5>    <code><span class="line"><span style="color:#C678DD">const</span><span style="color:#E5C07B"> numbers</span><span style="color:#56B6C2"> =</span><span style="color:#ABB2BF"> [</span><span style="color:#D19A66">1</span><span style="color:#ABB2BF">, </span><span style="color:#D19A66">2</span><span style="color:#ABB2BF">, </span><span style="color:#D19A66">3</span><span style="color:#ABB2BF">, </span><span style="color:#D19A66">4</span><span style="color:#ABB2BF">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C678DD">const</span><span style="color:#E5C07B"> doubles</span><span style="color:#56B6C2"> =</span><span style="color:#E5C07B"> numbers</span><span style="color:#ABB2BF">.</span><span style="color:#61AFEF">map</span><span style="color:#ABB2BF">(</span><span style="color:#E06C75;font-style:italic">number</span><span style="color:#C678DD"> =&gt;</span><span style="color:#E06C75"> number</span><span style="color:#56B6C2"> *</span><span style="color:#D19A66"> 2</span><span style="color:#ABB2BF">)</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">  // el callback es la función que recibe el map()</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">  // en este caso es una función de tipo flecha</span></span>
+<span class="line"></span></code>
+</pre> 
+<p>Por ejemplo, la función <code>map(){:js}</code> es un método del <code>Array.prototype{:js}</code>, es decir, un método disponible en todos los arreglos, este recibe un una función que le indique que hacer una vez que la función <code>.map(){:js}</code> ha terminado de ejecutarse y está recibe un argumento que luego usa para hacer las transformaciones correspondientes.</p>
+<h2 id="promesas">Promesas 🤝</h2>
+<p>Las Promesas las podemos considerar una evolución natural de los Callbacks, ya que un uso común de los Callbacks se encuentran enfocados a operaciones <em>asíncronas</em> ya que su sintaxis es más comprensible que la de los callbacks, por ejemplo:</p>
+<pre class="astro-code one-dark-pro astro-5eruibn5" style="background-color:#282c34;color:#abb2bf;overflow-x:auto" tabindex="0" data-language="js" data-astro-cid-5eruibn5>    <code><span class="line"><span style="color:#C678DD">const</span><span style="color:#E5C07B"> res</span><span style="color:#56B6C2"> =</span><span style="color:#61AFEF"> fetch</span><span style="color:#ABB2BF">(</span><span style="color:#98C379">&#39;https://url/api&#39;</span><span style="color:#ABB2BF">)</span></span>
+<span class="line"><span style="color:#ABB2BF">  .</span><span style="color:#61AFEF">then</span><span style="color:#ABB2BF">(</span><span style="color:#E06C75;font-style:italic">res</span><span style="color:#C678DD"> =&gt;</span><span style="color:#E5C07B"> res</span><span style="color:#ABB2BF">.</span><span style="color:#61AFEF">json</span><span style="color:#ABB2BF">())</span></span>
+<span class="line"><span style="color:#ABB2BF">  .</span><span style="color:#61AFEF">catch</span><span style="color:#ABB2BF">(</span><span style="color:#E06C75;font-style:italic">res</span><span style="color:#C678DD"> =&gt;</span><span style="color:#E5C07B"> console</span><span style="color:#ABB2BF">.</span><span style="color:#61AFEF">error</span><span style="color:#ABB2BF">(</span><span style="color:#E06C75">res</span><span style="color:#ABB2BF">))</span></span>
+<span class="line"><span style="color:#ABB2BF">  .</span><span style="color:#61AFEF">finally</span><span style="color:#ABB2BF">(() </span><span style="color:#C678DD">=&gt;</span><span style="color:#E5C07B"> console</span><span style="color:#ABB2BF">.</span><span style="color:#61AFEF">log</span><span style="color:#ABB2BF">(</span><span style="color:#98C379">&#39;Promise completely&#39;</span><span style="color:#ABB2BF">))</span></span>
+<span class="line"></span></code>
+</pre> 
+<p>Una promesa cuenta con 3 partes, el <code>.then(){:js}</code>, <code>.catch(){:js}</code>, y <code>.finally(){:js}</code> que son métodos que caracterizan a una promesa aunque por el momento solo hablaremos de then y catch que son los más comunes.</p>
+<h4 id="thenjs"><code>.then(){:js}</code></h4>
+<p>Posiblemente este es el método principal por el cual se distinguen la promesas ya que es el que se encargará de devolver o transformar un valor dependiendo de la implementación.</p>
+<p>Mas fácilmente podemos entender a <code>then(){:js}</code> como el método que hace algo una vez que la promesa ha terminado, y dentro de then() escribimos un callback que es el que se encargará de recibir la respuesta que la promesa haya devuelto.</p>
+<h4 id="catchjs"><code>.catch(){:js}</code></h4>
+<p>Catch podemos considerarlo como un método auxiliar, es decir, una contra-medida en caso de que la promesa no se resuelva correctamente y está retorne un error, como por ejemplo, Si una petición a una API devuelve un código de estado en el rango de 400 a 500, esto se consideraría como una promesa no resuelta, por lo que el método <em>.then()</em> quedaría anulado y se saltaría directamente al método <code>catch(){:js}</code> y este recibiría un callback para manejar el error, por ejemplo:</p>
+<pre class="astro-code one-dark-pro astro-5eruibn5" style="background-color:#282c34;color:#abb2bf;overflow-x:auto" tabindex="0" data-language="js" data-astro-cid-5eruibn5>    <code><span class="line"><span style="color:#61AFEF">fetch</span><span style="color:#ABB2BF">(</span><span style="color:#98C379">&#39;https://invalid.url&#39;</span><span style="color:#ABB2BF">)</span></span>
+<span class="line"><span style="color:#ABB2BF">  .</span><span style="color:#61AFEF">then</span><span style="color:#ABB2BF">(</span><span style="color:#7F848E;font-style:italic">/*Esto ya no se ejecutara*/</span><span style="color:#ABB2BF">)</span></span>
+<span class="line"><span style="color:#ABB2BF">  .</span><span style="color:#61AFEF">catch</span><span style="color:#ABB2BF">(</span><span style="color:#E06C75;font-style:italic">error</span><span style="color:#C678DD"> =&gt;</span><span style="color:#E5C07B"> console</span><span style="color:#ABB2BF">.</span><span style="color:#61AFEF">log</span><span style="color:#ABB2BF">(</span><span style="color:#E06C75">error</span><span style="color:#ABB2BF">))</span></span>
+<span class="line"><span style="color:#7F848E;font-style:italic">  // muestra el error en consola</span></span>
+<span class="line"></span></code>
+</pre> 
+<h2 id="asyncawait">Async/Await 🕒</h2>
+<p>Y finalmente <strong>async /await</strong> es una forma de escribir una función que sea asíncrona con una sintaxis mas clara y limpia que las promesas en donde ahora contaremos con 2 palabras reservadas para realizar esto, que como pueden imaginar, son <code>async{:js}</code> y <code>await{:js}</code>.</p>
+<p><strong>Async</strong> es la manera con la cual definimos que la que la función devolverá una promesa, si, una promesa. Aunque la función utiliza las palabra <code>async{:ts}</code>, esta es solo un indicador del tipo de función, en este caso, una función asíncrona, pero el tipo de dato que retorna es una promesa (<em>Promise</em>).</p>
+<p><strong>Await</strong> es la instrucción que indica que la función esperara a que la promesa se resuelva, antes de continuar con las siguientes instrucciones.</p>
+<pre class="astro-code one-dark-pro astro-5eruibn5" style="background-color:#282c34;color:#abb2bf;overflow-x:auto" tabindex="0" data-language="js" data-astro-cid-5eruibn5>    <code><span class="line"><span style="color:#C678DD">async</span><span style="color:#C678DD"> function</span><span style="color:#61AFEF"> getData</span><span style="color:#ABB2BF"> () {</span></span>
+<span class="line"><span style="color:#C678DD">  const</span><span style="color:#E5C07B"> res</span><span style="color:#56B6C2"> =</span><span style="color:#C678DD"> await</span><span style="color:#61AFEF"> fetch</span><span style="color:#ABB2BF">(</span><span style="color:#98C379">&#39;https://url/api&#39;</span><span style="color:#ABB2BF">)</span></span>
+<span class="line"><span style="color:#C678DD">  const</span><span style="color:#E5C07B"> data</span><span style="color:#56B6C2"> =</span><span style="color:#C678DD"> await</span><span style="color:#E5C07B"> res</span><span style="color:#ABB2BF">.</span><span style="color:#61AFEF">json</span><span style="color:#ABB2BF">()</span></span>
+<span class="line"><span style="color:#C678DD">  return</span><span style="color:#E06C75"> data</span></span>
+<span class="line"><span style="color:#ABB2BF">}</span></span>
+<span class="line"></span></code>
+</pre> 
+<p>Tanto <code>fetch(){:js}</code> como su método <code>.json(){:js}</code> son funciones asíncronas, es decir, que toman un determinado tiempo antes de devolver un valor, por lo que definimos la palabra <strong>await</strong> para indicarle que nos esperaremos a que la promesa nos devuelva el valor que esperamos para poder continuar con las operaciones, en este caso como ambas funciones son asíncronas, definimos 2 veces las palabras await para tener una continuidad correcta en el procesamiento de los datos.</p>
+<h2 id="notas-finales">Notas finales</h2>
+<p>Quisiera hacer mención que algunas de las cosas que mencioné como algunas reglas de escritura de código, son opiniones personales y no deberían tomarse como norma absoluta para el lenguaje, pero si debo mencionar que muchas de estas reglas se usan actualmente ya que permite una mejor colaboración en las aplicaciones que realices.</p>  </main> </body></html>
