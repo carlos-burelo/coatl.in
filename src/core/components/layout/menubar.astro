@@ -1,0 +1,35 @@
+---
+import Icon from '@core/components/elements/icon.astro'
+import Command from '@core/components/layout/command.astro'
+---
+
+<button aria-label='Command'>
+    <Icon name='command' />
+</button>
+
+<Command />
+
+<script>
+    const dialog = document.querySelector('dialog') as HTMLDialogElement
+    const button = document.querySelector('button') as HTMLButtonElement
+    button.addEventListener('click', () => dialog.showModal())
+    dialog.addEventListener('click', (e: any) => {
+        if (e.target.nodeName === 'DIALOG') {
+            e.target.close('dismiss')
+        }
+    })
+</script>
+
+<style>
+    button {
+        background-color: var(--bg);
+        border-radius: 0.5em;
+        border: solid 1px var(--bc);
+        padding: 0.3em;
+        display: grid;
+        place-content: center;
+        font-size: 1.1em;
+        stroke-width: 1.5;
+        color: var(--icon-color);
+    }
+</style>

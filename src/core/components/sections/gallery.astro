@@ -1,0 +1,30 @@
+---
+const fotos = ['/img1.jpg', '/profile.webp', '/profile.webp']
+---
+
+<section>
+    {fotos.map(foto => <img src={foto} alt='Foto de perfil' />)}
+</section>
+
+<style>
+    section {
+        display: grid;
+        gap: 1em;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    img {
+        width: 100%;
+        border-radius: 0.75em;
+        aspect-ratio: 2/3;
+        object-fit: cover;
+        background-color: var(--bg-card);
+        filter: grayscale(100%);
+        transition:
+            filter 0.3s ease-in-out,
+            transform 0.3s ease-in-out;
+    }
+    img:hover {
+        filter: grayscale(0%);
+        transform: scale(1.01);
+    }
+</style>

@@ -1,0 +1,48 @@
+---
+const { title, summary, date } = Astro.props
+---
+
+<li>
+    <header>
+        <h3>{title}</h3>
+        <time>{date}</time>
+    </header>
+    <p>
+        {summary}
+    </p>
+</li>
+
+<style>
+    li {
+        list-style: none;
+        position: relative;
+        padding-left: 20px;
+        display: grid;
+        gap: 0.75em;
+    }
+    li::before {
+        content: '•';
+        color: var(--primary);
+        font-size: 1.7em;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    header {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    time {
+        background-color: var(--bg-emphasis);
+        padding: 0.25em 0.5em;
+        border-radius: 0.25em;
+        font-size: 0.75em;
+        display: grid;
+        align-content: center;
+        color: var(--primary);
+    }
+</style>

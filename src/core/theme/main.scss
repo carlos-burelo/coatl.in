@@ -1,0 +1,108 @@
+:root {
+    --primary: #5c87f6;
+    --bg: #111318;
+    --bg-card: #20242d;
+    --background-navbar: #111318d0;
+    --background-dialog-backdrop: #0a0b0eb1;
+    --background-code-block: #0a0b0eb1;
+    --background-dialog: #111318;
+    --bc: #20242d;
+    --icon-color: #8994ae;
+    --text-color: #8994ae;
+    --text-primary: #e2eafd;
+    --color-link: #acb5c7;
+    --bg-link-hover: #5c88f60c;
+    --bg-emphasis: #5c88f612;
+
+    --z-index-body: 0;
+    --z-index-navbar: 100;
+    --z-index-dialog: 200;
+
+    --body-inner-padding: 1rem;
+
+    @media (width >430px) {
+        --body-inner-padding: 2rem;
+    }
+
+    @media (width >900px) {
+        --body-inner-padding: 3rem;
+    }
+
+    @media (width >1200px) {
+        --body-inner-padding: 18rem;
+    }
+
+    @media (width >1600px) {
+        --body-inner-padding: 30rem;
+    }
+
+}
+
+@font-face {
+    font-family: 'IBM Plex Sans';
+    src: url(/ibm.woff2) format('woff2');
+    text-rendering: optimizeLegibility;
+}
+
+
+@font-face {
+    font-family: 'IBM Plex Sans';
+    src: url(/ibm-italic.woff2) format('woff2');
+    text-rendering: optimizeLegibility;
+    font-style: italic;
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    background-color: var(--bg-emphasis);
+    color: var(--primary);
+}
+
+
+html {
+    color-scheme: dark;
+    accent-color: var(--primary);
+    scroll-behavior: smooth;
+    font-family: 'IBM Plex Sans', sans-serif, system-ui;
+}
+
+body {
+    background-color: var(--bg);
+    z-index: var(--z-index-body);
+}
+
+main,
+nav {
+    padding-inline: var(--body-inner-padding);
+}
+
+svg {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-primary);
+}

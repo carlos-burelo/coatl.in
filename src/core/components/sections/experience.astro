@@ -1,0 +1,30 @@
+---
+import ExperienceCart from '@core/components/elements/experience-card.astro'
+
+const events = Array.from({ length: 4 }, () => ({
+    title: 'Lorem, ipsum dolor.',
+    date: Intl.DateTimeFormat('en-US', {
+        month: 'long',
+        year: 'numeric',
+    }).format(new Date()),
+    summary:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, autem maiores. Sint doloribus sit provident molestiae hic, laudantium perferendis vero deleniti dolorem illo? Corporis in sit ab. Sapiente, iste dignissimos?',
+}))
+---
+
+<section>
+    <h2>Experience</h2>
+    <ul>
+        {events.map((event, i) => <ExperienceCart {...event} key={i} />)}
+    </ul>
+</section>
+
+<style>
+    h2 {
+        margin-block: 2em;
+    }
+    ul {
+        gap: 1.5em;
+        display: grid;
+    }
+</style>

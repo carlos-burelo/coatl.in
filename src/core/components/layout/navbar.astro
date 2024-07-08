@@ -1,0 +1,37 @@
+---
+import Menubar from '@core/components/layout/menubar.astro'
+---
+
+<nav>
+    <h1>Carlos Burelo</h1>
+    <Menubar />
+</nav>
+
+<style>
+    @keyframes scroll-collapse {
+        to {
+            height: 60px;
+            border: solid 1px var(--bc);
+        }
+    }
+    nav {
+        top: 0;
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: space-between;
+        align-content: center;
+        background-color: var(--background-navbar);
+        backdrop-filter: blur(5em);
+        position: sticky;
+        animation: scroll-collapse linear both 0.2s;
+        animation-timeline: scroll();
+        height: 100px;
+        animation-range: 0px 100px;
+        border: solid 1px transparent;
+        z-index: var(--z-index-navbar);
+    }
+    h1 {
+        display: grid;
+        place-content: center;
+    }
+</style>

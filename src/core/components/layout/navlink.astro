@@ -1,0 +1,34 @@
+---
+import Icon from '@core/components/elements/icon.astro'
+const { href, text, icon, target = 'self' } = Astro.props
+---
+
+<a href={href} target={target}>
+    <i><Icon name={icon} /></i>
+    <span>{text}</span>
+</a>
+
+<style>
+    a {
+        padding: 0.75em;
+        border-radius: 0.5em;
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: start;
+        gap: 1em;
+        color: var(--color-link);
+        transition:
+            background-color 0.15s ease-in-out,
+            color 0.15s ease-in-out;
+    }
+    i {
+        font-size: 0.7em;
+        stroke-width: 2.5;
+        display: grid;
+        place-content: center;
+    }
+    a:hover {
+        background-color: var(--bg-link-hover);
+        color: var(--primary);
+    }
+</style>

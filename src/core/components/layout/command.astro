@@ -1,0 +1,82 @@
+---
+import NavLink from '@core/components/layout/navlink.astro'
+---
+
+<dialog>
+    <div>
+        <section>
+            <h4>Navigation</h4>
+            <div>
+                <NavLink icon='arrow-left' text='Home' href='/' />
+                <NavLink icon='arrow-left' text='Blog' href='/blog' />
+                <NavLink icon='arrow-left' text='Snippets' href='/snippets' />
+            </div>
+        </section>
+        <section>
+            <h4>Links</h4>
+            <div>
+                <NavLink icon='folder' text='CV' href='/CV.pdf' target='_blank' />
+                <NavLink
+                    icon='github'
+                    text='GitHub'
+                    href='//github.com/carlos-burelo'
+                    target='_blank'
+                />
+            </div>
+        </section>
+    </div>
+</dialog>
+
+<style>
+    dialog {
+        min-width: 350px;
+        padding: 0.5em;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: solid 1px var(--bc);
+        background-color: var(--background-dialog);
+        border-radius: 0.5em;
+        animation: 300ms cubic-bezier(0.16, 1, 0.3, 1) 0s 1 normal forwards running fadeIn;
+    }
+    dialog:not([open]) {
+        pointer-events: none;
+        opacity: 0;
+    }
+
+    dialog > div {
+        display: grid;
+        gap: 1em;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    dialog::backdrop {
+        inset: 0px;
+        backdrop-filter: blur(4px);
+        background-color: var(--background-dialog-backdrop);
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    section {
+        display: grid;
+        gap: 0.5em;
+    }
+
+    h4 {
+        padding-left: 0.5em;
+    }
+
+    section > div {
+        display: grid;
+        gap: 0.1em;
+    }
+</style>
