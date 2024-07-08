@@ -3,15 +3,14 @@ import Icon from '#components/elements/icon.astro'
 import Command from '#components/layout/command.astro'
 ---
 
-<button aria-label='Command'>
+<button aria-label='Command' id='menu-button'>
     <Icon name='command' />
 </button>
-
 <Command />
 
 <script>
-    const dialog = document.querySelector('dialog') as HTMLDialogElement
-    const button = document.querySelector('button') as HTMLButtonElement
+    const dialog = document.querySelector('dialog#command-modal') as HTMLDialogElement
+    const button = document.querySelector('button#menu-button') as HTMLButtonElement
     button.addEventListener('click', () => dialog.showModal())
     dialog.addEventListener('click', (e: any) => {
         if (e.target.nodeName === 'DIALOG') {
