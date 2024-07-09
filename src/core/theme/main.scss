@@ -18,22 +18,22 @@
     --z-index-navbar: 100;
     --z-index-dialog: 200;
 
-    --body-inner-padding: 1rem;
+    --body-inner-padding: 1em;
 
     @media (width >430px) {
-        --body-inner-padding: 2rem;
+        --body-inner-padding: 1.5em;
     }
 
     @media (width >900px) {
-        --body-inner-padding: 3rem;
+        --body-inner-padding: 3em;
     }
 
     @media (width >1200px) {
-        --body-inner-padding: 18rem;
+        --body-inner-padding: 18em;
     }
 
     @media (width >1600px) {
-        --body-inner-padding: 30rem;
+        --body-inner-padding: 30em;
     }
 
 }

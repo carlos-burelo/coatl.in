@@ -3,14 +3,30 @@ const fotos = ['/img1.jpg', '/profile.webp', '/profile.webp']
 ---
 
 <section>
-    {fotos.map(foto => <img src={foto} alt='Foto de perfil' />)}
+    {
+        fotos.map(foto => (
+            <div>
+                <img src={foto} alt='Foto de perfil' />
+            </div>
+        ))
+    }
 </section>
 
 <style>
     section {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
+        scroll-snap-type: x mandatory;
+        scroll-snap-align: start;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding-block: 1em;
+    }
+    div {
+        min-width: 200px;
+        overflow: hidden;
     }
     img {
+        display: grid;
         width: 100%;
         border-radius: 0.75em;
         aspect-ratio: 2/3;
