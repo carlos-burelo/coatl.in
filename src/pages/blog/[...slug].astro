@@ -18,5 +18,15 @@ const { Content } = await entry.render()
 
 <Root>
     <h1>{entry.data.title}</h1>
-    <Content components={components} />
+    <article>
+        <Content components={components} />
+    </article>
 </Root>
+
+<style>
+    article {
+        display: grid;
+        gap: 1em;
+        margin-top: 4em;
+    }
+</style>
