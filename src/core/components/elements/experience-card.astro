@@ -1,5 +1,5 @@
 ---
-const { title, summary, date } = Astro.props
+const { title, summary, date, role } = Astro.props
 ---
 
 <li>
@@ -7,6 +7,7 @@ const { title, summary, date } = Astro.props
         <h3>{title}</h3>
         <time>{date}</time>
     </header>
+    <span>{role}</span>
     <p>{summary}</p>
 </li>
 
@@ -32,6 +33,10 @@ const { title, summary, date } = Astro.props
         grid-auto-flow: column;
         justify-content: space-between;
         align-items: center;
+    }
+
+    span {
+        color: var(--primary);
     }
 
     time {

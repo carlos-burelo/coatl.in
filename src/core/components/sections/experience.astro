@@ -1,15 +1,28 @@
 ---
 import ExperienceCart from '#components/elements/experience-card.astro'
 
-const events = Array.from({ length: 4 }, () => ({
-    title: 'Lorem, ipsum dolor.',
-    date: Intl.DateTimeFormat('en-US', {
-        month: 'long',
-        year: 'numeric',
-    }).format(new Date()),
-    summary:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, autem maiores. Sint doloribus sit provident molestiae hic, laudantium perferendis vero deleniti dolorem illo? Corporis in sit ab. Sapiente, iste dignissimos?',
-}))
+const events = [
+    {
+        date: 'Enero 2024- Marzo 2024',
+        role: ' Desarrollador de aplicaciones Moviles',
+        title: 'Software Estadístico Academico',
+        summary: `Desarrollé un software estadístico para una institución académica, el cual proporciona análisis detallados y visualización de datos para apoyar la toma de decisiones en el ámbito académico y administrativo.`,
+    },
+    {
+        date: 'Enero 2024 – Junio 2024',
+        title: 'PawCare',
+        role: 'Ingeniero de software',
+        summary:
+            'Diseñé una aplicación para el sector veterinario que optimiza la gestión de agendas, expedientes e insumos, mejorando la eficiencia administrativa y operacional.',
+    },
+    {
+        date: 'Octubre 2023 – Marzo 2024',
+        title: 'Oftálmica Laser',
+        role: 'Ingeniero de software',
+        summary:
+            ' Desarrollé software personalizado para mejorar la eficiencia en una clínica oftalmológica. Trabajé en estrecha colaboración con el personal médico para diseñar soluciones adaptadas a sus necesidades, mejorando la gestión de datos y la atención al paciente.',
+    },
+]
 ---
 
 <section>
