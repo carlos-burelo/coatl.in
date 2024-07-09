@@ -8,10 +8,3 @@ const posts = await getCollection('blog')
 <section>
     {posts.map(post => <PostCard post={post} />)}
 </section>
-
-<style>
-    section {
-        display: grid;
-        gap: 1em;
-    }
-</style>

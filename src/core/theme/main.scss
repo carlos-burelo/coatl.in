@@ -106,3 +106,8 @@ h5,
 h6 {
     color: var(--text-primary);
 }
+section {
+    margin-block: 2em;
+    display: grid;
+    gap: 1em;
+}
