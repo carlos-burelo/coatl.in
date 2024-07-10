@@ -1,0 +1,17 @@
+---
+import SearchBar from '@core/components/elements/search-bar.astro'
+import Root from '@core/components/layout/root.astro'
+import Snippets from '@core/components/sections/snippets.astro'
+import { getCollection } from 'astro:content'
+
+const snippets = await getCollection('snippets')
+const cleanData = snippets.map(s => ({
+    slug: s.slug,
+    data: s.data,
+}))
+---
+
+<Root>
+    <SearchBar path='/snippets' items={cleanData} />
+    <Snippets snippets={snippets} />
+</Root>

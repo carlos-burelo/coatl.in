@@ -78,6 +78,7 @@ html {
 
 body {
     background-color: var(--bg);
+    position: relative;
     z-index: var(--z-index-body);
 }
 
@@ -112,4 +113,22 @@ section {
     margin-block: 2em;
     display: grid;
     gap: 1em;
+}
+input {
+    background-color: var(--bg);
+    border: solid 1px var(--bc);
+    padding: 1em 2em;
+    border-radius: .5em;
+    display: grid;
+}
+
+input:focus {
+    outline: solid 1px var(--primary);
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    height: fit-content;
+    object-fit: contain;
 }

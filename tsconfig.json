@@ -8,7 +8,9 @@
       ],
       "#components/*": [
         "./components/*"
-      ],
-    }
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
   }
 }

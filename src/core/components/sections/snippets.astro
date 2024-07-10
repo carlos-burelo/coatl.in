@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import SnippetCard from '../elements/snippet-card.astro'
+
+type Props = {
+    snippets: CollectionEntry<'snippets'>[]
+}
+
+const { snippets } = Astro.props
+---
+
+<section>
+    {snippets.map(snippet => <SnippetCard {...snippet} />)}
+</section>
+
+<style>
+    section {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+</style>

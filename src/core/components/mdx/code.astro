@@ -1,0 +1,16 @@
+---
+const props = Astro.props
+---
+
+<code {...props}>
+    <slot />
+</code>
+
+<style>
+    :global(pre code) {
+        display: grid;
+    }
+    :global(code .line) {
+        line-height: 1.8;
+    }
+</style>

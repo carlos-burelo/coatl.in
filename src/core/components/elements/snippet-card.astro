@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Icon from './icon.astro'
+
+export type Props = CollectionEntry<'snippets'>
+
+const { data, slug } = Astro.props
+---
+
+<a href={`/snippets/${slug}`}>
+    <i><Icon name={data.lang.toLowerCase()} /></i>
+    <h4>{data.title}</h4>
+</a>
+
+<style>
+    a {
+        border-radius: 0.5em;
+        border: solid 1px var(--bc);
+        padding: 1em;
+        min-height: 100px;
+        position: relative;
+        overflow: hidden;
+    }
+    h4 {
+        z-index: 1;
+        position: relative;
+    }
+    i {
+        position: absolute;
+        top: 0.5em;
+        right: 0.5em;
+        font-size: 3em;
+        z-index: 0;
+        opacity: 0.1;
+    }
+</style>

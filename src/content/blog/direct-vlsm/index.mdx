@@ -1,0 +1,52 @@
+---
+title: VLSM a partir de una dirección de red
+publishedAt: 2023-09-23
+---
+
+VLSM es una tecnica que nos permite dividir una red en subredes de diferentes tamaños, esto nos permite optimizar el uso de direcciones IP.
+
+En este ejemplo vamos a hacer VLSM a partir de una dirección de red, se nos pide tambien identificar que tipo de red es, direccion de red, host o broadcast, para ello vamos a utilizar la siguiente dirección de red: `192.168.20.3/30{:js}`
+
+## Paso 1: Identificar la mascara de red
+
+La mascara de red nos indica que bits de la dirección IP son de red y cuales son de host, en este caso la mascara de red es: `30{:js}`
+
+## Paso 2: Restar la mascara de red a 32
+
+`32 - 20 = 2{:js}`
+
+Te preguntaras, ¿por que restamos la mascara de red a 32?, la respuesta es que 32 es el numero de bits que tiene una dirección IPv4, y al restarle la mascara de red nos da el numero de bits que tenemos disponibles para crear subredes.
+
+## Paso 3: Calcular el numero de subredes
+
+`2² = 4{:js}`
+
+Lo que hemos hecho es elevar 2 a la potencia de 2, ya que tenemos 2 bits disponibles para crear subredes.
+
+## Paso 4: Crear la tabla de subredes
+
+Para este punto ya tenemos los datos necesarios para crear la tabla de subredes, la cual nos va a indicar el numero de subredes que podemos crear, la dirección de red, la mascara de red y el numero de hosts por subred.
+
+Para generar la tabla seguiremos los siguiente pasos:
+
+<Alert >
+  Siempre empezaremos usando la primera subred posible, en este caso es `192.168.20.0/30{:js}`.
+</Alert>
+
+|    Subred     |       Dirección de red        |      Broadcast      |
+| :-----------: | :---------------------------: | :-----------------: |
+| 192.168.20.0  |  192.168.20.1 - 192.168.20.2  | `192.168.20.3{:js}` |
+| 192.168.20.4  |  192.168.20.5 - 192.168.20.6  |    192.168.20.7     |
+| 192.168.20.8  | 192.168.20.9 - 192.168.20.10  |    192.168.20.11    |
+| 192.168.20.12 | 192.168.20.13 - 192.168.20.14 |    192.168.20.15    |
+|      ...      |              ...              |         ...         |
+
+## Paso 5: Identificar el tipo de red
+
+Esta es la parte mas sencilla, ya que a simple vista podemos identificar que tipo de red es cada una de las direcciones de la tabla, en este caso la direccion es de broadcast, ya que termina en `3{:js}`.
+
+## Confirma los resultados
+
+Para confirmar los resultados podemos utilizar una calculadora de subredes, en este caso vamos a utilizar [este sitio web](https://vlsmcalc.vercel.app/).
+
+<br />
