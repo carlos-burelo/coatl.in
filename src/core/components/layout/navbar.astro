@@ -11,7 +11,7 @@ import Cmd from '@core/components/elements/cmd.astro'
     @keyframes scroll-collapse {
         to {
             height: 60px;
-            border: solid 1px var(--bc);
+            border: solid 1px var(--border-color);
         }
     }
     nav {
@@ -20,7 +20,7 @@ import Cmd from '@core/components/elements/cmd.astro'
         grid-auto-flow: column;
         justify-content: space-between;
         align-content: center;
-        background-color: var(--background-navbar);
+        background-color: var(--background-color-navbar);
         backdrop-filter: blur(5em);
         position: sticky;
         animation: scroll-collapse linear both 0.2s;

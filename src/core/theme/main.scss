@@ -1,23 +1,23 @@
+@import './colors.scss';
+@import './fonts.scss';
 :root {
-    --primary: #5c87f6;
-    --bg: #111318;
-    --bg-card: #20242d;
-    --background-navbar: #111318d0;
-    --background-dialog-backdrop: #0a0b0eb1;
+    --primary-color: #5c87f6;
     --background-code-block: #0a0b0eb1;
-    --background-dialog: #111318;
-    --bc: #20242d;
-    --icon-color: #8994ae;
-    --text-color: #8994ae;
-    --text-primary: #e2eafd;
-    --color-link: #acb5c7;
-    --bg-link-hover: #5c88f60c;
-    --bg-emphasis: #5c88f612;
-
+    --background-color-dialog: #111318;
+        --background-color: #111318;
+        --background-color-secondary: #20242d;
+        --background-color-navbar: #111318d0;
+        --background-color-backdrop: #0a0b0eb1;
+        --background-color-link-hover: #5c88f60c;
+        --background-color-emphasis: #5c88f612;
+        --border-color: #20242d;
+        --foreground-color-icon: #8994ae;
+        --foreground-color-paragraph: #8994ae;
+        --foreground-color-titles: #e2eafd;
+        --foreground-color-links: #acb5c7;
     --z-index-body: 0;
     --z-index-navbar: 100;
     --z-index-dialog: 200;
-
     --body-inner-padding: 1em;
 
     @media (width >430px) {
@@ -38,22 +38,6 @@
 
 }
 
-@font-face {
-    font-family: 'IBM Plex Sans';
-    src: url(/ibm.woff2) format('woff2');
-    text-rendering: optimizeLegibility;
-        font-display: swap;
-}
-
-
-@font-face {
-    font-family: 'IBM Plex Sans';
-    src: url(/ibm-italic.woff2) format('woff2');
-    text-rendering: optimizeLegibility;
-    font-style: italic;
-    font-display: swap;
-}
-
 
 *,
 *::before,
@@ -64,20 +48,21 @@
 }
 
 ::selection {
-    background-color: var(--bg-emphasis);
-    color: var(--primary);
+    background-color: var(--background-color-emphasis);
+        color: var(--primary-color);
 }
 
 
 html {
     color-scheme: dark;
-    accent-color: var(--primary);
+    accent-color: var(--primary-color);
+        color: var(--foreground-color-titles);
     scroll-behavior: smooth;
     font-family: 'IBM Plex Sans', sans-serif, system-ui;
 }
 
 body {
-    background-color: var(--bg);
+    background-color: var(--background-color);
     position: relative;
     z-index: var(--z-index-body);
 }
@@ -97,7 +82,7 @@ a {
 }
 
 p {
-    color: var(--text-color);
+    color: var(--foreground-color-paragraph);
     line-height: 1.8;
 }
 
@@ -107,23 +92,25 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--text-primary);
+    color: var(--foreground-color-titles);
 }
+
 section {
     margin-block: 2em;
     display: grid;
     gap: 1em;
 }
+
 input {
-    background-color: var(--bg);
-    border: solid 1px var(--bc);
+    background-color: var(--background-color);
+        border: solid 1px var(--border-color);
     padding: 1em 2em;
     border-radius: .5em;
     display: grid;
 }
 
 input:focus {
-    outline: solid 1px var(--primary);
+    outline: solid 1px var(--primary-color);
 }
 
 img {

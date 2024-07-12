@@ -31,8 +31,8 @@ const { id } = Astro.props
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        border: solid 1px var(--bc);
-        background-color: var(--background-dialog);
+        border: solid 1px var(--border-color);
+        background-color: var(--background-color-dialog);
         border-radius: 0.5em;
         animation: overlap ease-in-out 0.2s;
     }
@@ -40,14 +40,14 @@ const { id } = Astro.props
     dialog::backdrop {
         inset: 0px;
         backdrop-filter: blur(4px);
-        background-color: var(--background-dialog-backdrop);
+        background-color: var(--background-color-backdrop);
         transition: background-color 0.2s ease-in-out;
     }
     div {
         padding: 0.5em;
         display: grid;
         gap: 1em;
-        background-color: var(--bg);
+        background-color: var(--background-color);
         position: relative;
     }
 </style>

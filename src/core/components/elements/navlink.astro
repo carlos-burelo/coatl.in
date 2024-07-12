@@ -16,7 +16,7 @@ const { href, text, icon, target } = Astro.props
         grid-auto-flow: column;
         justify-content: start;
         gap: 1em;
-        color: var(--color-link);
+        color: var(--foreground-color-links);
         transition:
             background-color 0.15s ease-in-out,
             color 0.15s ease-in-out;
@@ -28,7 +28,7 @@ const { href, text, icon, target } = Astro.props
         place-content: center;
     }
     a:hover {
-        background-color: var(--bg-link-hover);
-        color: var(--primary);
+        background-color: var(--background-color-link-hover);
+        color: var(--primary-color);
     }
 </style>

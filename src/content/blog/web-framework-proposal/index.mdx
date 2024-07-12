@@ -42,9 +42,9 @@ En base a esto he considerado que **React** tiene mejor sintaxis para estas estr
 </ul>
 ```
 
-De esta forma se puede entender mucho mas fácil como se estructura el bucle ya que se utilizan directamente los métodos de los arreglos del propio lenguaje, como el `.map(){:js}`, para iterar sobre la lista de elementos.
+De esta forma se puede entender mucho mas fácil como se estructura el bucle ya que se utilizan directamente los métodos de los arreglos del propio lenguaje, como el `.map()`, para iterar sobre la lista de elementos.
 
-Si bien esta sintaxis nos podría solucionar esa pequeña inconsistencia en la sintaxis de svelte, aun es muy pronto para que podamos decir que es la forma correcta, a pesar de que svelte si puede interpretar código javascript dentro de los `{}{:js}` como si de _JSX_ se tratara, por eso pasamos a la siguiente propuesta que considero un poco mas acertada para el entorno de svelte.
+Si bien esta sintaxis nos podría solucionar esa pequeña inconsistencia en la sintaxis de svelte, aun es muy pronto para que podamos decir que es la forma correcta, a pesar de que svelte si puede interpretar código javascript dentro de los `{}` como si de _JSX_ se tratara, por eso pasamos a la siguiente propuesta que considero un poco mas acertada para el entorno de svelte.
 
 ```html
 <ul>
@@ -63,7 +63,7 @@ Svelte es un framework que busca generar interfaces web de la forma mas simple p
 </ul>
 ```
 
-Basándome en la propuesta de Angular que utiliza el template para generar estructuras de control y en las directivas que permiten realizar estas estructuras, propuse crear una directiva que use los corchetes `[some_directive]{:js}` como sintaxis ideal para las estructuras de control de svelte y que permita reducir el código de esta forma:
+Basándome en la propuesta de Angular que utiliza el template para generar estructuras de control y en las directivas que permiten realizar estas estructuras, propuse crear una directiva que use los corchetes `[some_directive]` como sintaxis ideal para las estructuras de control de svelte y que permita reducir el código de esta forma:
 
 ```html
 <!-- Iteración simple sobre una lista de numeros -->
@@ -88,11 +88,11 @@ Basándome en la propuesta de Angular que utiliza el template para generar estru
 ```
 
 Con esta propuesta busco delegar el proceso de renderizando a el propio template conservando la reactividad de las variables de svelte utilizando el atributo `[for]` sobre la etiqueta que se busca iterar manteniendo un comportamiento reactivo similar a como se utiliza el atributo `bind` del propio svelte.
-La sintaxis de la iteración esta basada en la estructura `for (let item of items){...}{:js}` de javascript lo cual lo hace mas sencillo de implementar y mas fácil de entender.
+La sintaxis de la iteración esta basada en la estructura `for (let item of items){...}` de javascript lo cual lo hace mas sencillo de implementar y mas fácil de entender.
 
 ### Condicionales 
 
-De igual forma que con la propuesta de los bucles, svelte también tiene una sintaxis para condicionales, pero esta sintaxis sigue el mismo patrón que la de los bucles, es decir, se utiliza el corchete `[if]` y una pseudo propiedad `else{:js}` para definir una condición, pero en vez de una lista de elementos, se utiliza una expresión de javascript, por lo que se puede utilizar cualquier expresión de javascript, como en el ejemplo siguiente:
+De igual forma que con la propuesta de los bucles, svelte también tiene una sintaxis para condicionales, pero esta sintaxis sigue el mismo patrón que la de los bucles, es decir, se utiliza el corchete `[if]` y una pseudo propiedad `else` para definir una condición, pero en vez de una lista de elementos, se utiliza una expresión de javascript, por lo que se puede utilizar cualquier expresión de javascript, como en el ejemplo siguiente:
 
 ```html
 <!-- Condicional simple -->
@@ -139,7 +139,7 @@ Otros de los conceptos raros de svelte son las props, que son las propiedades qu
 <p>{value}</p>
 ```
 
-Mi propuesta es que las propiedades que se reciban en le componente hijo puedan provenir de una variable global que puede tener cualquier nombre aunque bien puede ser llamada `$props{:js}`.
+Mi propuesta es que las propiedades que se reciban en le componente hijo puedan provenir de una variable global que puede tener cualquier nombre aunque bien puede ser llamada `$props`.
 De esta manera se puede entender el concepto de que las props son algo que se recibe y no algo que se expone a los componentes padre.
 
 ```svelte title="parent.svelte"
@@ -160,6 +160,6 @@ De esta manera se puede entender el concepto de que las props son algo que se re
 
 Utilizando esta nomenclatura se puede entender de forma mas sencilla que nos referimos a una variable que es reactiva por defecto, y que se actualiza cuando se le pasa una nueva propiedad o pueda ocurrir algún cambio en el componente padre que desencadene un cambio en la variable.
 
-La idea de utilizar `$props{:js}` como un alternativa a los `export{:js}` de variables es que sea más fácil de entender y que sea más fácil de mantener. Por ejemplo, las variables que definen el comportamiento del componente son las props, pero estas son fácilmente confundibles con las variables del propio componente, por lo que hacer una _destructuración_ de las props es más fácil de entender, ademas de que implementar una variable "global" dentro de un componente no es tan complicado considerando que la sintaxis de svelte ya hace cosas similares con las variables reactivas usando el símbolo `${:js}`.
+La idea de utilizar `$props` como un alternativa a los `export` de variables es que sea más fácil de entender y que sea más fácil de mantener. Por ejemplo, las variables que definen el comportamiento del componente son las props, pero estas son fácilmente confundibles con las variables del propio componente, por lo que hacer una _destructuración_ de las props es más fácil de entender, ademas de que implementar una variable "global" dentro de un componente no es tan complicado considerando que la sintaxis de svelte ya hace cosas similares con las variables reactivas usando el símbolo `$`.
 
 ### Continuara... 

@@ -51,43 +51,43 @@ const orange = fruits.pop() // ["orange"]
 console.log(fruits) // ["apple", "banana"]
   ```
 
-Como podemos ver, al utilizar el método `.pop(){:js}` estamos obteniendo el ultimo valor de el arreglo `fruits{:js}`, pero a su vez este mismo ha perdido su ultimo valor, por lo que al momento de imprimir el valor de `fruits{:js}`, el elemento `"orange"{:.str}` ya no esta disponible.
+Como podemos ver, al utilizar el método `.pop()` estamos obteniendo el ultimo valor de el arreglo `fruits`, pero a su vez este mismo ha perdido su ultimo valor, por lo que al momento de imprimir el valor de `fruits`, el elemento `"orange"{:.str}` ya no esta disponible.
 
 En javascript tenemos métodos que mutan el valor de una variable, en este caso tomaremos de ejemplo los arreglos, como por ejemplo:
 
-- `.push(){:js}`: Agrega un elemento al final del arreglo
-- `.pop(){:js}`: Elimina el ultimo elemento del arreglo
-- `.shift(){:js}`: Elimina el primer elemento del arreglo
-- `.unshift(){:js}`: Agrega un elemento al inicio del arreglo
+- `.push()`: Agrega un elemento al final del arreglo
+- `.pop()`: Elimina el ultimo elemento del arreglo
+- `.shift()`: Elimina el primer elemento del arreglo
+- `.unshift()`: Agrega un elemento al inicio del arreglo
 
 Métodos que mutan el valor de un string...
 
-- `.concat(){:js}`: Concatena un string con otro string
-- `.slice(){:js}`: Extrae una porción del string
-- `.split(){:js}`: Divide un string en un arreglo
-- `.substr(){:js}`: Extrae una porción del string
-- `.substring(){:js}`: Extrae una porción del string
-- `.toLowerCase(){:js}`: Convierte el string a minúsculas
-- `.toUpperCase(){:js}`: Convierte el string a mayúsculas
+- `.concat()`: Concatena un string con otro string
+- `.slice()`: Extrae una porción del string
+- `.split()`: Divide un string en un arreglo
+- `.substr()`: Extrae una porción del string
+- `.substring()`: Extrae una porción del string
+- `.toLowerCase()`: Convierte el string a minúsculas
+- `.toUpperCase()`: Convierte el string a mayúsculas
 
 Métodos que mutan el valor de un numero...
 
-- `.toString(){:js}`: Convierte el numero en un string
-- `.toFixed(){:js}`: Convierte el numero en un string con una cantidad de decimales
-- `.toExponential(){:js}`: Convierte el numero en un string con una cantidad de decimales
-- `.toPrecision(){:js}`: Convierte el numero en un string con una cantidad de decimales
+- `.toString()`: Convierte el numero en un string
+- `.toFixed()`: Convierte el numero en un string con una cantidad de decimales
+- `.toExponential()`: Convierte el numero en un string con una cantidad de decimales
+- `.toPrecision()`: Convierte el numero en un string con una cantidad de decimales
 
 Y métodos que mutan el valor de un objeto.
 
-- `.assign(){:js}`: Asigna un valor a una propiedad de un objeto
-- `.deleteProperty(){:js}`: Elimina una propiedad de un objeto
-- `.defineProperty(){:js}`: Define una propiedad de un objeto
-- `.freeze(){:js}`: Congela un objeto
-- `.seal(){:js}`: Se cierra un objeto
-- `.preventExtensions(){:js}`: Evita que un objeto sea extensible
-- `.isFrozen(){:js}`: Verifica si un objeto esta congelado
-- `.isSealed(){:js}`: Verifica si un objeto esta cerrado
-- `.isExtensible(){:js}`: Verifica si un objeto es extensible
+- `.assign()`: Asigna un valor a una propiedad de un objeto
+- `.deleteProperty()`: Elimina una propiedad de un objeto
+- `.defineProperty()`: Define una propiedad de un objeto
+- `.freeze()`: Congela un objeto
+- `.seal()`: Se cierra un objeto
+- `.preventExtensions()`: Evita que un objeto sea extensible
+- `.isFrozen()`: Verifica si un objeto esta congelado
+- `.isSealed()`: Verifica si un objeto esta cerrado
+- `.isExtensible()`: Verifica si un objeto es extensible
 
 ## Funciones 🐛➡🦋
 
@@ -136,7 +136,7 @@ const doubles = numbers.map(number => number * 2)
   // en este caso es una función de tipo flecha
   ```
 
-Por ejemplo, la función `map(){:js}` es un método del `Array.prototype{:js}`, es decir, un método disponible en todos los arreglos, este recibe un una función que le indique que hacer una vez que la función `.map(){:js}` ha terminado de ejecutarse y está recibe un argumento que luego usa para hacer las transformaciones correspondientes.
+Por ejemplo, la función `map()` es un método del `Array.prototype`, es decir, un método disponible en todos los arreglos, este recibe un una función que le indique que hacer una vez que la función `.map()` ha terminado de ejecutarse y está recibe un argumento que luego usa para hacer las transformaciones correspondientes.
 
 ## Promesas 🤝
 
@@ -149,17 +149,17 @@ const res = fetch('https://url/api')
   .finally(() => console.log('Promise completely'))
   ```
 
-Una promesa cuenta con 3 partes, el `.then(){:js}`, `.catch(){:js}`, y `.finally(){:js}` que son métodos que caracterizan a una promesa aunque por el momento solo hablaremos de then y catch que son los más comunes.
+Una promesa cuenta con 3 partes, el `.then()`, `.catch()`, y `.finally()` que son métodos que caracterizan a una promesa aunque por el momento solo hablaremos de then y catch que son los más comunes.
 
-#### `.then(){:js}`
+#### `.then()`
 
 Posiblemente este es el método principal por el cual se distinguen la promesas ya que es el que se encargará de devolver o transformar un valor dependiendo de la implementación.
 
-Mas fácilmente podemos entender a `then(){:js}` como el método que hace algo una vez que la promesa ha terminado, y dentro de then() escribimos un callback que es el que se encargará de recibir la respuesta que la promesa haya devuelto.
+Mas fácilmente podemos entender a `then()` como el método que hace algo una vez que la promesa ha terminado, y dentro de then() escribimos un callback que es el que se encargará de recibir la respuesta que la promesa haya devuelto.
 
-#### `.catch(){:js}`
+#### `.catch()`
 
-Catch podemos considerarlo como un método auxiliar, es decir, una contra-medida en caso de que la promesa no se resuelva correctamente y está retorne un error, como por ejemplo, Si una petición a una API devuelve un código de estado en el rango de 400 a 500, esto se consideraría como una promesa no resuelta, por lo que el método _.then()_ quedaría anulado y se saltaría directamente al método `catch(){:js}` y este recibiría un callback para manejar el error, por ejemplo:
+Catch podemos considerarlo como un método auxiliar, es decir, una contra-medida en caso de que la promesa no se resuelva correctamente y está retorne un error, como por ejemplo, Si una petición a una API devuelve un código de estado en el rango de 400 a 500, esto se consideraría como una promesa no resuelta, por lo que el método _.then()_ quedaría anulado y se saltaría directamente al método `catch()` y este recibiría un callback para manejar el error, por ejemplo:
 
 ```js
 fetch('https://invalid.url')
@@ -170,9 +170,9 @@ fetch('https://invalid.url')
 
 ## Async/Await 🕒
 
-Y finalmente **async /await** es una forma de escribir una función que sea asíncrona con una sintaxis mas clara y limpia que las promesas en donde ahora contaremos con 2 palabras reservadas para realizar esto, que como pueden imaginar, son `async{:js}` y `await{:js}`.
+Y finalmente **async /await** es una forma de escribir una función que sea asíncrona con una sintaxis mas clara y limpia que las promesas en donde ahora contaremos con 2 palabras reservadas para realizar esto, que como pueden imaginar, son `async` y `await`.
 
-**Async** es la manera con la cual definimos que la que la función devolverá una promesa, si, una promesa. Aunque la función utiliza las palabra `async{:ts}`, esta es solo un indicador del tipo de función, en este caso, una función asíncrona, pero el tipo de dato que retorna es una promesa (_Promise_).
+**Async** es la manera con la cual definimos que la que la función devolverá una promesa, si, una promesa. Aunque la función utiliza las palabra `async`, esta es solo un indicador del tipo de función, en este caso, una función asíncrona, pero el tipo de dato que retorna es una promesa (_Promise_).
 
 **Await** es la instrucción que indica que la función esperara a que la promesa se resuelva, antes de continuar con las siguientes instrucciones.
 
@@ -184,7 +184,7 @@ async function getData () {
 }
 ```
 
-Tanto `fetch(){:js}` como su método `.json(){:js}` son funciones asíncronas, es decir, que toman un determinado tiempo antes de devolver un valor, por lo que definimos la palabra **await** para indicarle que nos esperaremos a que la promesa nos devuelva el valor que esperamos para poder continuar con las operaciones, en este caso como ambas funciones son asíncronas, definimos 2 veces las palabras await para tener una continuidad correcta en el procesamiento de los datos.
+Tanto `fetch()` como su método `.json()` son funciones asíncronas, es decir, que toman un determinado tiempo antes de devolver un valor, por lo que definimos la palabra **await** para indicarle que nos esperaremos a que la promesa nos devuelva el valor que esperamos para poder continuar con las operaciones, en este caso como ambas funciones son asíncronas, definimos 2 veces las palabras await para tener una continuidad correcta en el procesamiento de los datos.
 
 ## Notas finales
 

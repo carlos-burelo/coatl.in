@@ -10,7 +10,7 @@ const props = Astro.props
     table {
         width: 100%;
         border-spacing: 0;
-        border: 1px solid var(--bc);
+        border: 1px solid var(--border-color);
         border-radius: 0.5em;
         font-size: 0.9em;
         table-layout: fixed;
@@ -21,8 +21,8 @@ const props = Astro.props
         :global(th),
         :global(td) {
             padding: 0.5em;
-            border-right: 1px solid var(--bc);
-            border-bottom: 1px solid var(--bc);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap;

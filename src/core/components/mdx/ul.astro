@@ -1,0 +1,14 @@
+---
+const props = Astro.props
+---
+
+<ul {...props}>
+    <slot />
+</ul>
+
+<style>
+    ul {
+        display: grid;
+        gap: 0.25em;
+    }
+</style>
