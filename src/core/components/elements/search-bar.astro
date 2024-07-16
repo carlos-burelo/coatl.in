@@ -1,50 +1,61 @@
 ---
-import Modal from './modal.astro'
+import Modal from "./modal.astro";
 
-const { items, path } = Astro.props as SearchBar$
+const { items, path } = Astro.props;
 ---
 
 <header>
-    <input type='text' id='fake-searchbar' placeholder='Search...' aria-label='buscar' />
+    <input
+        type="text"
+        id="fake-searchbar"
+        placeholder="Search..."
+        aria-label="buscar"
+    />
 </header>
 
-<Modal id='searchbox'>
-    <input type='text' aria-label='searchbox' id='real-searchbar' autocomplete='off' />
-    <ul id='results'>
-        <a href='/' style='pointer-events: none;'>Comienze a escribir algo</a>
+<Modal id="searchbox">
+    <input
+        type="text"
+        aria-label="searchbox"
+        id="real-searchbar"
+        autocomplete="off"
+    />
+    <ul id="results">
+        <a href="/" style="pointer-events: none;">Comienze a escribir algo</a>
     </ul>
 </Modal>
 
 <script is:inline define:vars={{ items, path }}>
-    const fakeSearchBar = document.getElementById('fake-searchbar')
-    const realSearchBar = document.getElementById('real-searchbar')
-    const modal = document.getElementById('searchbox')
-    const listOfResults = document.getElementById('results')
+    const fakeSearchBar = document.getElementById("fake-searchbar");
+    const realSearchBar = document.getElementById("real-searchbar");
+    const modal = document.getElementById("searchbox");
+    const listOfResults = document.getElementById("results");
 
-    fakeSearchBar.addEventListener('click', () => {
-        modal.showModal()
-        realSearchBar.autofocus = true
-    })
+    fakeSearchBar.addEventListener("click", () => {
+        modal.showModal();
+        realSearchBar.autofocus = true;
+    });
 
-    realSearchBar.addEventListener('input', ({ target }) => {
-        const { value } = target
-        if (value == '') {
-            listOfResults.innerHTML = `<a href='/' style='pointer-events: none;'>No se encontraron resultados</>`
+    realSearchBar.addEventListener("input", ({ target }) => {
+        const { value } = target;
+        if (value == "") {
+            listOfResults.innerHTML = `<a href='/' style='pointer-events: none;'>No se encontraron resultados</>`;
         } else {
-            const results = items.filter(i => {
-                const item = i.data.title.toLowerCase()
-                const query = value.toLowerCase()
-                return item.includes(query)
-            })
+            const results = items.filter((i) => {
+                const item = i.data.title.toLowerCase();
+                const query = value.toLowerCase();
+                return item.includes(query);
+            });
             if (results.length > 0) {
-                let htmlResults = ''
+                let htmlResults = "";
                 results.forEach(
-                    r => (htmlResults += `<a href='${path}/${r.slug}'>${r.data.title}</a>`),
-                )
-                listOfResults.innerHTML = htmlResults
+                    (r) =>
+                        (htmlResults += `<a href='${path}/${r.slug}'>${r.data.title}</a>`),
+                );
+                listOfResults.innerHTML = htmlResults;
             }
         }
-    })
+    });
 </script>
 
 <style>

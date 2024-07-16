@@ -1,9 +1,37 @@
 ---
-const { post } = Astro.props as Post$
+import type { CollectionEntry } from "astro:content";
+
+const { post } = Astro.props as { post: CollectionEntry<"blog"> };
+
+const {
+    data: { createdAt, updatedAt, title },
+    slug,
+} = post;
+
+const baseDate = Intl.DateTimeFormat("es-MX", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+}).format(new Date(createdAt));
+
+const updatedDate = Intl.DateTimeFormat("es-MX", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+}).format(new Date(updatedAt));
+
+const isUpdated =
+    new Date(createdAt).getTime() != new Date(updatedAt).getTime();
+
+const newDate = isUpdated ? updatedDate : baseDate;
 ---
 
-<a href={`/blog/${post.slug}`}>
-    <h4>{post.data.title}</h4>
+<a href={`/blog/${slug}`}>
+    <header>
+        <time datetime={newDate}>{newDate}</time>
+        {isUpdated && <time datetime={newDate}>Actualizado</time>}
+    </header>
+    <h4>{title}</h4>
 </a>
 
 <style>
@@ -14,5 +42,19 @@ const { post } = Astro.props as Post$
     h4 {
         letter-spacing: 0.01em;
         font-size: 1.2em;
+        text-wrap: initial;
+        font-weight: 600;
+    }
+    header {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: space-between;
+        margin-bottom: 0.5em;
+    }
+    time {
+        color: var(--primary-color);
+        background-color: var(--background-color-emphasis);
+        padding: 0em 0.5em;
+        border-radius: 0.25em;
     }
 </style>

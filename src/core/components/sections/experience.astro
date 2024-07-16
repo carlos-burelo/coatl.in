@@ -1,34 +1,34 @@
 ---
-import ExperienceCart from '#components/cards/experience-card.astro'
+import ExperienceCart from "../cards/experience-card.astro";
 
 const events = [
     {
-        date: 'Enero 2024- Marzo 2024',
-        role: ' Desarrollador de aplicaciones Moviles',
-        title: 'Software Estadístico Academico',
+        date: "Enero 2024- Marzo 2024",
+        role: " Desarrollador de aplicaciones Moviles",
+        title: "Software Estadístico Academico",
         summary: `Desarrollé un software estadístico para una institución académica, el cual proporciona análisis detallados y visualización de datos para apoyar la toma de decisiones en el ámbito académico y administrativo.`,
     },
     {
-        date: 'Enero 2024 – Junio 2024',
-        title: 'PawCare',
-        role: 'Ingeniero de software',
+        date: "Enero 2024 – Junio 2024",
+        title: "PawCare",
+        role: "Ingeniero de software",
         summary:
-            'Diseñé una aplicación para el sector veterinario que optimiza la gestión de agendas, expedientes e insumos, mejorando la eficiencia administrativa y operacional.',
+            "Diseñé una aplicación para el sector veterinario que optimiza la gestión de agendas, expedientes e insumos, mejorando la eficiencia administrativa y operacional.",
     },
     {
-        date: 'Octubre 2023 – Marzo 2024',
-        title: 'Oftálmica Laser',
-        role: 'Ingeniero de software',
+        date: "Octubre 2023 – Marzo 2024",
+        title: "Oftálmica Laser",
+        role: "Ingeniero de software",
         summary:
-            ' Desarrollé software personalizado para mejorar la eficiencia en una clínica oftalmológica. Trabajé en estrecha colaboración con el personal médico para diseñar soluciones adaptadas a sus necesidades, mejorando la gestión de datos y la atención al paciente.',
+            " Desarrollé software personalizado para mejorar la eficiencia en una clínica oftalmológica. Trabajé en estrecha colaboración con el personal médico para diseñar soluciones adaptadas a sus necesidades, mejorando la gestión de datos y la atención al paciente.",
     },
-]
+];
 ---
 
 <section>
     <h2>Experience</h2>
     <ul>
-        {events.map(event => <ExperienceCart {...event} />)}
+        {events.map((event) => <ExperienceCart {...event} />)}
     </ul>
 </section>
 

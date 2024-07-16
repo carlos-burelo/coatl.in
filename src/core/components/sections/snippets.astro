@@ -1,16 +1,16 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import SnippetCard from '#components/cards/snippet-card.astro'
+import type { CollectionEntry } from "astro:content";
+import SnippetCard from "../cards/snippet-card.astro";
 
 type Props = {
-    snippets: CollectionEntry<'snippets'>[]
-}
+    snippets: CollectionEntry<"snippets">[];
+};
 
-const { snippets } = Astro.props
+const { snippets } = Astro.props;
 ---
 
 <section>
-    {snippets.map(snippet => <SnippetCard {...snippet} />)}
+    {snippets.map((snippet) => <SnippetCard {...snippet} />)}
 </section>
 
 <style>

@@ -6,7 +6,6 @@ const blogCollection = defineCollection({
     createdAt: z.date(),
     updatedAt: z.date(),
     category: z.string(),
-
   })
 })
 

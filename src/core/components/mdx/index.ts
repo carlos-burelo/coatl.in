@@ -1,3 +1,4 @@
+import a from './a.astro';
 import Alert from './alert.astro';
 import blockquote from './blockquote.astro';
 import code from './code.astro';
@@ -7,8 +8,10 @@ import pre from './pre.astro';
 import table from './table.astro';
 import ul from './ul.astro';
 
+
 export default {
     pre,
+    a,
     li,
     ul,
     ol,

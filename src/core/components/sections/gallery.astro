@@ -1,12 +1,12 @@
 ---
-const fotos = ['/me.avif', '/profile.webp', '/profile.webp']
+const fotos = ["/img3.avif", "/img1.avif", "/img2.avif"];
 ---
 
 <section>
     {
-        fotos.map(foto => (
+        fotos.map((foto) => (
             <div>
-                <img src={foto} alt='Foto de perfil' />
+                <img src={foto} alt="Foto de perfil" />
             </div>
         ))
     }

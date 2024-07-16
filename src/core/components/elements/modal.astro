@@ -1,5 +1,5 @@
 ---
-const { id } = Astro.props as Modal$
+const { id } = Astro.props;
 ---
 
 <dialog id={id}>
@@ -49,6 +49,9 @@ const { id } = Astro.props as Modal$
 </style>
 
 <script defer is:inline define:vars={{ id }}>
-    const dialog = document.querySelector(`#${id}`)
-    dialog.addEventListener('click', e => e.target === dialog && dialog.close())
+    const dialog = document.querySelector(`#${id}`);
+    dialog.addEventListener(
+        "click",
+        (e) => e.target === dialog && dialog.close(),
+    );
 </script>

@@ -1,5 +1,5 @@
 ---
-const props = Astro.props
+const props = Astro.props;
 ---
 
 <li {...props}>
@@ -9,5 +9,8 @@ const props = Astro.props
 <style>
     li {
         list-style: inside;
+    }
+    :global(li > *) {
+        display: inline;
     }
 </style>

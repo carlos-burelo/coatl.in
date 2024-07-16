@@ -1,0 +1,37 @@
+:root {
+    --primary-color: #5c87f6;
+    --background-code-block: #0a0b0eb1;
+    --background-color-dialog: #111318;
+    --background-color: #111318;
+    --background-color-secondary: #20242d;
+    --background-color-navbar: #111318d0;
+    --background-color-backdrop: #0a0b0eb1;
+    --background-color-link-hover: #5c88f60c;
+    --background-color-emphasis: #5c88f612;
+    --border-color: #20242d;
+    --foreground-color-icon: #8994ae;
+    --foreground-color-paragraph: #8994ae;
+    --foreground-color-titles: #e2eafd;
+    --foreground-color-links: #acb5c7;
+    --z-index-body: 0;
+    --z-index-navbar: 100;
+    --z-index-dialog: 200;
+    --body-inner-separation: 1em;
+
+    @media (width >500px) {
+        --body-inner-separation: 1.5em;
+    }
+
+    @media (width >900px) {
+        --body-inner-separation: 3em;
+    }
+
+    @media (width >1200px) {
+        --body-inner-separation: 18em;
+    }
+
+    @media (width >1600px) {
+        --body-inner-separation: 30em;
+    }
+
+}

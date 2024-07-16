@@ -1,16 +1,16 @@
 ---
-import { getCollection } from 'astro:content'
-import PostCard from '#components/cards/post-card.astro'
+import { getCollection } from "astro:content";
+import PostCard from "../cards/post-card.astro";
 
-const posts = await getCollection('blog')
+const posts = await getCollection("blog");
 ---
 
 <section>
-    {posts.map(post => <PostCard post={post} />)}
+    {posts.map((post) => <PostCard post={post} />)}
 </section>
 
 <style>
     section {
-        gap: 2em;
+        gap: 3em;
     }
 </style>

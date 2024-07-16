@@ -1,0 +1,58 @@
+html {
+    color-scheme: dark;
+    accent-color: var(--primary-color);
+    color: var(--foreground-color-titles);
+    scroll-behavior: smooth;
+    font-family: 'IBM Plex Sans', sans-serif, system-ui;
+}
+
+body {
+    background-color: var(--background-color);
+    position: relative;
+    z-index: var(--z-index-body);
+}
+
+body>nav,
+body>div {
+    padding-inline: var(--body-inner-separation);
+}
+
+a {
+    text-decoration: none;
+    color: var(--foreground-color-links);
+}
+
+p {
+    color: var(--foreground-color-paragraph);
+}
+
+li,
+p {
+    line-height: 1.9;
+}
+
+li {
+    list-style-position: inside;
+}
+
+section {
+    margin-block: 2em;
+    display: grid;
+    gap: 1em;
+}
+
+input {
+    background-color: var(--background-color);
+    border: solid 1px var(--border-color);
+    padding: .75em 1.5em;
+    border-radius: .5em;
+    display: grid;
+
+    &:focus {
+        outline: solid 1px var(--primary-color);
+    }
+}
+
+@view-transition {
+    navigation: auto;
+}

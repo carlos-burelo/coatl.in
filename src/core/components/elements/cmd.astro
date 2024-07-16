@@ -1,25 +1,33 @@
 ---
-import Modal from '#components/elements/modal.astro'
-import NavLink from '#components/elements/navlink.astro'
-import Icon from '#components/elements/icon.astro'
+import Modal from "./modal.astro";
+import NavLink from "./navlink.astro";
+import Icon from "./icon.astro";
 ---
 
-<Modal id='cmd'>
+<Modal id="cmd">
     <div>
         <h4>Navigation</h4>
-        <NavLink icon='arrow-left' text='Home' href='/' />
-        <NavLink icon='arrow-left' text='Blog' href='/blog' />
-        <NavLink icon='arrow-left' text='Snippets' href='/snippets' />
+        <NavLink icon="arrow-left" text="Home" href="/" />
+        <NavLink icon="arrow-left" text="Blog" href="/blog" />
+        <NavLink icon="arrow-left" text="Snippets" href="/snippets" />
     </div>
     <div>
         <h4>Links</h4>
-        <NavLink icon='folder' text='CV' href='/cv.pdf' target='_blank' />
-        <NavLink icon='github' text='GitHub' href='//github.com/carlos-burelo' target='_blank' />
+        <NavLink icon="folder" text="CV" href="/cv.pdf" target="_blank" />
+        <NavLink
+            icon="github"
+            text="GitHub"
+            href="//github.com/carlos-burelo"
+            target="_blank"
+        />
     </div>
 </Modal>
 
-<button aria-label='open command' onclick='document.querySelector("#cmd").showModal()'>
-    <Icon name='command' />
+<button
+    aria-label="open command"
+    onclick='document.querySelector("#cmd").showModal()'
+>
+    <Icon name="command" />
 </button>
 
 <style>
@@ -36,8 +44,12 @@ import Icon from '#components/elements/icon.astro'
         font-size: 1.1em;
         stroke-width: 1.5;
         color: var(--foreground-color-icon);
+        transition:
+            color 0.2s ease,
+            border-color 0.2s ease;
     }
     button:hover {
-        background-color: var(--background-color-secondary);
+        color: var(--primary-color);
+        border-color: var(--primary-color);
     }
 </style>
