@@ -1,11 +1,5 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-
-export interface Props {
-    post: CollectionEntry<'blog'>
-}
-
-const { post } = Astro.props
+const { post } = Astro.props as Post$
 ---
 
 <a href={`/blog/${post.slug}`}>

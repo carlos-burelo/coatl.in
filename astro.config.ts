@@ -5,9 +5,20 @@ import config from './src/core/config';
 
 // https://astro.build/config
 export default defineConfig({
-  ...config,
-  // output: 'server',
-  site: 'https://coatl.in'
-  // adapter: vercel(),
-  ,
+  // ...config,
+  site: 'https://coatl.in',
+
+  // vite: {
+  //   optimizeDeps: {
+  //     esbuildOptions: {
+  //       target: 'esnext',
+  //     },
+  //   },
+  //   esbuild: {
+  //     target: 'esnext',
+  //   },
+  //   build: {
+  //     target: 'esnext',
+  //   }
+  // }
 });

@@ -1,10 +1,6 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import Icon from './icon.astro'
-
-export type Props = CollectionEntry<'snippets'>
-
-const { data, slug } = Astro.props
+import Icon from '#components/elements/icon.astro'
+const { data, slug } = Astro.props as Snippet$
 ---
 
 <a href={`/snippets/${slug}`}>

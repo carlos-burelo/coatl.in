@@ -1,12 +1,7 @@
 ---
 import Modal from './modal.astro'
 
-export interface Props<T> {
-    items: T[]
-    path: string
-}
-
-const { items, path } = Astro.props
+const { items, path } = Astro.props as SearchBar$
 ---
 
 <header>

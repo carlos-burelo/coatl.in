@@ -1,12 +1,9 @@
 ---
-export interface Props {
-    name: string
-}
+import type { Icon$ } from '#types'
 
-const { name } = Astro.props as Props
+const { name } = Astro.props as Icon$
+
 const path = `/src/core/icons/${name}.svg`
-
-// const { default: src } = await import(path)
 
 const icons = import.meta.glob<{ default: ImageMetadata }>('/src/core/icons/*.svg', {
     query: '?raw',
@@ -14,10 +11,6 @@ const icons = import.meta.glob<{ default: ImageMetadata }>('/src/core/icons/*.sv
 })
 
 const icon = await icons[path]()
-
-if (!icon) {
-    throw new Error(`Icon not found: ${name}`)
-}
 ---
 
 <Fragment set:html={icon} />
