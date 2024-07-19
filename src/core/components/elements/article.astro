@@ -1,34 +1,25 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import BackButton from "./back-button.astro";
 import TableOfContents from "./table-of-contents.astro";
-import type { MarkdownHeading } from "astro";
+import { prettyDate } from "../../libs/parsers";
 
 export interface Props {
-    entry: CollectionEntry<"blog">;
-    headings: MarkdownHeading[];
+    entry: Post;
+    headings: Heading[];
 }
 
 const { entry, headings } = Astro.props;
 const { title } = entry.data;
 const { updatedAt, createdAt } = entry.data;
-const date = new Date(createdAt).toLocaleDateString("es-MX", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-});
-
+const date = prettyDate(createdAt);
 const minutes = Math.ceil(entry.body.split(" ").length / 200);
 const readingTime = minutes > 1 ? `${minutes} minutos` : "1 minuto";
-
 const isUpdated = updatedAt.getTime() !== createdAt.getTime();
-const updatedDate = new Date(updatedAt).toLocaleDateString("es-MX", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-});
+const updatedDate = prettyDate(updatedAt);
 ---
 
 <article>
+    <BackButton />
     <header>
         <h1>{title}</h1>
         <div class="meta">
@@ -39,7 +30,7 @@ const updatedDate = new Date(updatedAt).toLocaleDateString("es-MX", {
             </div>
             {
                 isUpdated && (
-                    <time datetime={updatedAt}>
+                    <time datetime={updatedAt.toDateString()}>
                         Ultima actualización: {updatedDate}
                     </time>
                 )
@@ -80,11 +71,5 @@ const updatedDate = new Date(updatedAt).toLocaleDateString("es-MX", {
         grid-auto-flow: column;
         align-items: center;
         justify-content: flex-start;
-    }
-    time {
-        color: var(--primary-color);
-        background-color: var(--background-color-emphasis);
-        padding: 0.125em 0.25em;
-        border-radius: 0.25em;
     }
 </style>

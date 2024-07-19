@@ -1,7 +1,8 @@
 ---
-import "../../theme/main.css";
-import Navbar from "../layout/navbar.astro";
+import Navbar from "#components/layout/navbar.astro";
 import { SEO } from "astro-seo";
+import "../../theme/main.css";
+import Footer from "./footer.astro";
 
 const { title = "Carlos Burelo" } = Astro.props;
 ---
@@ -9,7 +10,7 @@ const { title = "Carlos Burelo" } = Astro.props;
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/logo.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>Carlos Burelo - Software Engineer</title>
@@ -20,5 +21,6 @@ const { title = "Carlos Burelo" } = Astro.props;
         <div>
             <slot />
         </div>
+        <Footer />
     </body>
 </html>

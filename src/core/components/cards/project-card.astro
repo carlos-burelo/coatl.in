@@ -1,0 +1,31 @@
+---
+const { position } = Astro.props;
+---
+
+<div class="card">
+    <div class="meta" style={`grid-area: ${position};`}>
+        <h3>Project name</h3>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
+            illum?
+        </p>
+    </div>
+</div>
+
+<style>
+    .card {
+        display: grid;
+        gap: 0.5em;
+        border: solid 1px var(--border-color);
+        padding: 1em;
+        border-radius: 0.5em;
+        min-height: 250px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "area-1 area-2";
+    }
+    .meta {
+        display: grid;
+        align-content: end;
+        height: 100%;
+    }
+</style>

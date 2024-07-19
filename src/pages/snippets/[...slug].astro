@@ -1,23 +1,17 @@
 ---
-import { getCollection } from "astro:content";
+import BackButton from "../../core/components/elements/back-button.astro";
 import Root from "../../core/components/layout/root.astro";
 import components from "../../core/components/mdx";
-import TableOfContents from "../../core/components/elements/table-of-contents.astro";
+export { getSnippets as getStaticPaths } from "../../core/libs/providers";
 
 export const prerender = true;
 
-export async function getStaticPaths() {
-    const blogEntries = await getCollection("snippets");
-    return blogEntries.map((entry) => ({
-        params: { slug: entry.slug },
-        props: { entry },
-    }));
-}
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
 <Root>
+    <BackButton />
     <h1>{entry.data.title}</h1>
     <article>
         <Content components={components} />
@@ -28,6 +22,8 @@ const { Content } = await entry.render();
     article {
         display: grid;
         gap: 1em;
-        margin-top: 4em;
+    }
+    h1 {
+        margin-block: 0.5em;
     }
 </style>

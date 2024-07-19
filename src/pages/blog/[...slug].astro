@@ -1,18 +1,11 @@
 ---
-import { getCollection } from "astro:content";
-import Article from "../../core/components/elements/article.astro";
-import Root from "../../core/components/layout/root.astro";
-import components from "../../core/components/mdx";
+import Article from "#components/elements/article.astro";
+import Root from "#components/layout/root.astro";
+import components from "#components/mdx";
+export { getPosts as getStaticPaths } from "#libs/providers";
 
 export const prerender = true;
 
-export async function getStaticPaths() {
-    const blogEntries = await getCollection("blog");
-    return blogEntries.map((entry) => ({
-        params: { slug: entry.slug },
-        props: { entry },
-    }));
-}
 const { entry } = Astro.props;
 const { Content, headings } = await entry.render();
 const { title } = entry.data;

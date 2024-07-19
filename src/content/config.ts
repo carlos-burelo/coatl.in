@@ -5,8 +5,7 @@ const blogCollection = defineCollection({
     title: z.string(),
     createdAt: z.date(),
     updatedAt: z.date(),
-    category: z.string(),
-  })
+  }),
 })
 
 const workCollection = defineCollection({
@@ -30,7 +29,7 @@ const snippetCollection = defineCollection({
 })
 
 export const collections = {
-  posts: blogCollection,
+  blog: blogCollection,
   works: workCollection,
   snippets: snippetCollection,
 }

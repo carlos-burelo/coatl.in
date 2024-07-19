@@ -1,10 +1,9 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import SnippetCard from "../cards/snippet-card.astro";
+import SnippetCard from "#components/cards/snippet-card.astro";
 
-type Props = {
-    snippets: CollectionEntry<"snippets">[];
-};
+export interface Props {
+    snippets: Snippet[];
+}
 
 const { snippets } = Astro.props;
 ---

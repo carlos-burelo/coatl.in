@@ -1,0 +1,67 @@
+---
+import Icon from "#components/elements/icon.astro";
+---
+
+<footer>
+    <section class="wrapper">
+        <i>
+            <Icon name="coatl" />
+        </i>
+        <div class="container">
+            <div class="links">
+                <a href="/">Inicio</a>
+                <a href="/blog">Blog</a>
+                <a href="/snippets">Snippets</a>
+                <a href="/works">Proyectos</a>
+                <a href="/resources">Recursos</a>
+            </div>
+            <div class="contact">
+                <a href="//github.com/carlos-burelo">
+                    <Icon name="github" />
+                </a>
+            </div>
+        </div>
+    </section>
+    <h5>© {new Date().getFullYear()} Carlos Burelo — México</h5>
+</footer>
+
+<style>
+    footer {
+        padding-inline: var(--body-inner-separation);
+        padding-block: 2em;
+    }
+    .container {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: space-between;
+        gap: 1em;
+    }
+    .links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1em;
+    }
+
+    .wrapper {
+        grid-template-columns: auto 1fr;
+        align-items: center;
+    }
+    i {
+        background-color: var(--background-color-secondary);
+        display: grid;
+        place-items: center;
+        border-radius: 0.25em;
+        padding: 0.5em;
+        width: fit-content;
+        font-size: 1.5em;
+        color: var(--foreground-color-titles);
+    }
+
+    a {
+        transition: color 0.2s ease-in-out;
+    }
+    a:hover {
+        color: var(--primary-color);
+    }
+</style>

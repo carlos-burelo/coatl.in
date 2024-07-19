@@ -6,6 +6,12 @@ html {
     font-family: 'IBM Plex Sans', sans-serif, system-ui;
 }
 
+::selection {
+    background-color: var(--background-color-emphasis);
+    color: var(--primary-color);
+}
+
+
 body {
     background-color: var(--background-color);
     position: relative;
@@ -51,6 +57,15 @@ input {
     &:focus {
         outline: solid 1px var(--primary-color);
     }
+}
+
+time {
+    color: var(--primary-color);
+    background-color: var(--background-color-emphasis);
+    padding: 0em 0.5em;
+    border-radius: 0.25em;
+    width: fit-content;
+    height: fit-content;
 }
 
 @view-transition {

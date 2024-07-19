@@ -1,28 +1,16 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import { prettyDate } from "#libs/parsers";
 
-const { post } = Astro.props as { post: CollectionEntry<"blog"> };
+const { post } = Astro.props as { post: Post };
 
 const {
     data: { createdAt, updatedAt, title },
     slug,
 } = post;
 
-const baseDate = Intl.DateTimeFormat("es-MX", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-}).format(new Date(createdAt));
-
-const updatedDate = Intl.DateTimeFormat("es-MX", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-}).format(new Date(updatedAt));
-
-const isUpdated =
-    new Date(createdAt).getTime() != new Date(updatedAt).getTime();
-
+const baseDate = prettyDate(createdAt);
+const updatedDate = prettyDate(updatedAt);
+const isUpdated = createdAt.getTime() != updatedAt.getTime();
 const newDate = isUpdated ? updatedDate : baseDate;
 ---
 
@@ -50,11 +38,5 @@ const newDate = isUpdated ? updatedDate : baseDate;
         grid-auto-flow: column;
         justify-content: space-between;
         margin-bottom: 0.5em;
-    }
-    time {
-        color: var(--primary-color);
-        background-color: var(--background-color-emphasis);
-        padding: 0em 0.5em;
-        border-radius: 0.25em;
     }
 </style>

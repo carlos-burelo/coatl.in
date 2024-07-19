@@ -1,7 +1,7 @@
 ---
-import SearchBar from "../../core/components/elements/search-bar.astro";
-import Root from "../../core/components/layout/root.astro";
-import Snippets from "../../core/components/sections/snippets.astro";
+import SearchBar from "#components/elements/search-bar.astro";
+import Root from "#components/layout/root.astro";
+import Snippets from "#components/sections/snippets.astro";
 import { getCollection } from "astro:content";
 
 const snippets = await getCollection("snippets");

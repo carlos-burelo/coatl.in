@@ -27,12 +27,12 @@ const { headings } = Astro.props as { headings: MarkdownHeading[] };
     }
     .list {
         display: grid;
-        gap: 1em;
+        gap: 0.75em;
         list-style-type: none;
         padding: 0;
     }
     aside {
-        max-height: 70vh;
+        max-height: calc(100vh - 6em);
         position: fixed;
         gap: 0.75em;
         left: 0;
@@ -48,12 +48,11 @@ const { headings } = Astro.props as { headings: MarkdownHeading[] };
         }
     }
     a {
-        text-decoration: none;
         transition: color 0.3s ease;
         color: var(--foreground-color-paragraph);
+        font-size: 0.8em;
     }
-    li.active > a {
+    a:hover {
         color: var(--primary-color);
-        font-weight: bold;
     }
 </style>

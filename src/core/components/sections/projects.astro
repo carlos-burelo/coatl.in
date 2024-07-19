@@ -1,0 +1,20 @@
+---
+import ProjectCard from "#components/cards/project-card.astro";
+
+const projects = Array.from({ length: 3 });
+
+function pos(i: number): string {
+    return i % 2 == 0 ? "area-1" : "area-2";
+}
+---
+
+<section>
+    <h2>Proyectos</h2>
+    {projects.map((_, i) => <ProjectCard position={pos(i)} />)}
+</section>
+
+<style>
+    h2 {
+        margin-block: 1em;
+    }
+</style>
