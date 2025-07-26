@@ -1,17 +1,14 @@
 ---
 const { name } = Astro.props;
 
-const path = `/src/core/icons/${name}.svg`;
+const icons = import.meta.glob<string>("/src/core/icons/*.svg", {
+    query: "?raw",
+    import: "default",
+    eager: true,
+});
 
-const icons = import.meta.glob<{ default: ImageMetadata }>(
-    "/src/core/icons/*.svg",
-    {
-        query: "?raw",
-        import: "default",
-    },
-);
-
-const icon = await icons[path]();
+const iconPath = `/src/core/icons/${name}.svg`;
+const icon = icons[iconPath];
 ---
 
 <Fragment set:html={icon} />

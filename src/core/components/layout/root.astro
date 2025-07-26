@@ -2,19 +2,53 @@
 import Navbar from "#components/layout/navbar.astro";
 import { SEO } from "astro-seo";
 import "../../theme/main.css";
+import Fonts from "./fonts.astro";
+import Footer from "./footer.astro";
+
+const { title = "Carlos Burelo", articleTitle } = Astro.props;
+const navbarTitle = articleTitle || title;
+---
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="description" content="Carlos Burelo - Software Engineer" />
+        <title>Carlos Burelo - Software Engineer</title>
+        <SEO title="Carlos Burelo - Software Engineer" />
+        <Fonts />
+    </head>
+    <body>
+        <Navbar title={navbarTitle} />
+        <div>
+            <slot />
+        </div>
+        <Footer />
+    </body>
+</html>
+
+<!-- ---
+import Navbar from "#components/layout/navbar.astro";
+import { SEO } from "astro-seo";
+import "../../theme/main.css";
+import Fonts from "./fonts.astro";
 import Footer from "./footer.astro";
 
 const { title = "Carlos Burelo" } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="icon" type="image/svg+xml" href="/logo.svg" />
         <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content="Carlos Burelo - Software Engineer" />
         <title>Carlos Burelo - Software Engineer</title>
         <SEO title="Carlos Burelo - Software Engineer" />
+        <Fonts />
     </head>
     <body>
         <Navbar title={title} />
@@ -23,4 +57,4 @@ const { title = "Carlos Burelo" } = Astro.props;
         </div>
         <Footer />
     </body>
-</html>
+</html> -->

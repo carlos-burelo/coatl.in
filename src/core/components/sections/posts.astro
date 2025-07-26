@@ -3,10 +3,33 @@ import { getCollection } from "astro:content";
 import PostCard from "#components/cards/post-card.astro";
 
 const posts = await getCollection("blog");
+
+// Ordena los posts por fecha descendente
+posts.sort((a, b) => {
+    return b.data.createdAt.getTime() - a.data.createdAt.getTime();
+});
+
+const postByYears = Object.groupBy(posts, (post) => {
+    return post.data.createdAt.getFullYear();
+});
+
+// Obtiene los años ordenados de mayor a menor
+const years = Object.keys(postByYears)
+    .map(Number)
+    .sort((a, b) => b - a);
 ---
 
 <section>
-    {posts.map((post) => <PostCard post={post} />)}
+    {
+        years.map((year) => (
+            <div>
+                <h2>{year}</h2>
+                {postByYears[year]!.map((post) => (
+                    <PostCard post={post} />
+                ))}
+            </div>
+        ))
+    }
 </section>
 
 <style>

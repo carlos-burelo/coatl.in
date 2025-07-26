@@ -1,5 +1,5 @@
 ---
-import { prettyDate } from "#libs/parsers";
+import { prettyShortDate } from "#libs/parsers";
 
 const { post } = Astro.props as { post: Post };
 
@@ -8,35 +8,30 @@ const {
     slug,
 } = post;
 
-const baseDate = prettyDate(createdAt);
-const updatedDate = prettyDate(updatedAt);
+const baseDate = prettyShortDate(createdAt);
+const updatedDate = prettyShortDate(updatedAt);
 const isUpdated = createdAt.getTime() != updatedAt.getTime();
 const newDate = isUpdated ? updatedDate : baseDate;
 ---
 
 <a href={`/blog/${slug}`}>
-    <header>
-        <time datetime={newDate}>{newDate}</time>
-        {isUpdated && <time datetime={newDate}>Actualizado</time>}
-    </header>
-    <h4>{title}</h4>
+    <p>{title}</p>
+    <time datetime={newDate}>{newDate}</time>
 </a>
 
 <style>
     a {
-        all: unset;
-        cursor: pointer;
-    }
-    h4 {
-        letter-spacing: 0.01em;
-        font-size: 1.2em;
-        text-wrap: initial;
-        font-weight: 600;
-    }
-    header {
-        display: grid;
-        grid-auto-flow: column;
+        display: flex;
         justify-content: space-between;
-        margin-bottom: 0.5em;
+        align-items: center;
+        padding: 1em;
+        border-bottom: solid 1px var(--border-color);
+    }
+    a:hover {
+        color: var(--primary-color);
+    }
+    time {
+        font-size: 0.8em;
+        text-wrap: nowrap;
     }
 </style>

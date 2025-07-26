@@ -1,16 +1,8 @@
 ---
 import Root from "../../core/components/layout/root.astro";
 import Posts from "../../core/components/sections/posts.astro";
-import SearchBar from "../../core/components/elements/search-bar.astro";
-import { getCollection } from "astro:content";
-
-const cleanData = await getCollection("blog", (e) => ({
-    slug: e.id,
-    data: e.data,
-}));
 ---
 
 <Root>
-    <SearchBar path="/blog" items={cleanData} />
     <Posts />
 </Root>

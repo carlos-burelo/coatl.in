@@ -1,31 +1,29 @@
 ---
-const { position } = Astro.props;
+import { Image } from "astro:assets";
+// Importa la imagen como asset
+import profileImage from "../../../../public/profile.webp";
 ---
 
-<div class="card">
-    <div class="meta" style={`grid-area: ${position};`}>
-        <h3>Project name</h3>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
-            illum?
-        </p>
-    </div>
-</div>
+<a href="/#">
+    <Image
+        class="img"
+        src={profileImage}
+        alt="Imagen alternativa"
+        loading="eager"
+        decoding="async"
+        width={500}
+        height={281}
+        quality={85}
+        format="webp"
+    />
+    <span class="name">Project Name</span>
+</a>
 
 <style>
-    .card {
-        display: grid;
-        gap: 0.5em;
-        border: solid 1px var(--border-color);
-        padding: 1em;
-        border-radius: 0.5em;
-        min-height: 250px;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: "area-1 area-2";
-    }
-    .meta {
-        display: grid;
-        align-content: end;
-        height: 100%;
+    .img {
+        border-radius: 1em;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        content-visibility: auto;
     }
 </style>

@@ -1,11 +1,12 @@
 :root {
-    --primary-color: #5c87f6;
+    --primary-color: #4a80e8;
+
     --background-code-block: #0a0b0eb1;
-    --background-pre: #171a22b1;
-    --background-color-dialog: #111318;
-    --background-color: #111318;
+    --background-pre: #171a2216;
+    --background-color-dialog: #080b0f;
+    --background-color: #080b0f;
     --background-color-secondary: #20242d;
-    --background-color-navbar: #111318d0;
+    --background-color-navbar: #1926352e;
     --background-color-backdrop: #0a0b0eb1;
     --background-color-link-hover: #5c88f60c;
     --background-color-emphasis: #5c88f612;

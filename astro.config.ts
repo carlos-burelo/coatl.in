@@ -7,5 +7,10 @@ export default defineConfig({
             theme: 'one-dark-pro'
         }
     },
-    integrations: [mdx()]
+    integrations: [mdx()],
+    vite: {
+        css: {
+            transformer:'lightningcss',
+        }
+    }
 });

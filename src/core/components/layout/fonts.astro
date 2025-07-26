@@ -1,0 +1,98 @@
+---
+interface CriticalResource {
+  href: string;
+  priority: "high" | "low";
+}
+
+const criticalResources: CriticalResource[] = [
+  { href: "/fonts/base.woff2", priority: "high" },
+  { href: "/fonts/italic.woff2", priority: "low" },
+  { href: "/fonts/code.woff2", priority: "low" },
+];
+---
+
+{
+  criticalResources.map(({ href, priority }) => (
+    <link
+      rel="preload"
+      href={href}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      fetchpriority={priority}
+    />
+  ))
+}
+
+<style is:global>
+  @font-face {
+    font-family: "IBM";
+    src: url("/fonts/base.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "IBM";
+    src: url("/fonts/italic.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "IBM Code";
+    src: url("/fonts/code.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>
+
+<!-- <style is:global>
+  @font-face {
+    font-family: "IBM";
+    src: url("/fonts/base.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "IBM";
+    src: url("/fonts/italic.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "IBM Code";
+    src: url("/fonts/code.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>
+
+<link
+  rel="preload"
+  href="/fonts/base.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin="anonymous"
+/>
+<link
+  rel="preload"
+  href="/fonts/italic.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin="anonymous"
+/>
+<link
+  rel="preload"
+  href="/fonts/code.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin="anonymous"
+/> -->

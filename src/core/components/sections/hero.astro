@@ -1,6 +1,26 @@
+---
+import Icon from "#components/elements/icon.astro";
+---
+
 <section>
     <h1>Construyendo Mis Propias Ideas</h1>
     <h2>Ayudandote a lanzar las tuyas</h2>
+    <p>
+        Desarrollador web con +5 años de experiencia en la creación de
+        soluciones digitales. He liderado proyectos de código abierto y
+        soluciones personalizadas para clientes, lo que ha ampliado mi capacidad
+        para resolver desafíos complejos. Mi interés radica en seguir
+        perfeccionando mis habilidades y conocimientos en el ámbito del
+        desarrollo web
+    </p>
+    <div class="actions">
+        <button>@ Contactame</button>
+        <button>Ver proyectos</button>
+        <div role="separator"></div>
+        <Icon name="github" />
+        <Icon name="linkedin" />
+        <Icon name="linkedin" />
+    </div>
 </section>
 
 <style>
@@ -9,5 +29,32 @@
     }
     h2 {
         font-size: 2rem;
+    }
+    section {
+        display: grid;
+        align-content: center;
+        min-height: calc(100dvh - (4em));
+    }
+    .actions {
+        display: flex;
+        gap: 1.25em;
+        align-items: center;
+        justify-content: start;
+    }
+    div[role="separator"] {
+        width: 1.5px;
+        background-color: var(--border-color);
+        border-radius: 1px;
+        height: 90%;
+    }
+    button {
+        font-weight: 500;
+        padding: 0.5em 1em;
+        border-radius: 0.5em;
+        background-color: var(--primary-color);
+        color: var(--background-color);
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
     }
 </style>

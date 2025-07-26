@@ -1,36 +1,215 @@
 ---
-import Cmd from "#components/elements/cmd.astro";
+const { title } = Astro.props;
 ---
 
 <nav>
-    <a href="/"><h2>Carlos Burelo</h2></a>
-    <Cmd />
+    <div class="progress-circle">
+        <svg viewBox="0 0 36 36">
+            <path
+                class="progress-bg"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+            ></path>
+            <path
+                class="progress-bar"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+            ></path>
+        </svg>
+        <a href="/" class="home-link">🐍</a>
+    </div>
+    <div role="separator"></div>
+    <div class="nav-content">
+        <div class="nav-links" id="nav-links">
+            <a href="/blog">Blog</a>
+            <a href="/snippets">Snippets</a>
+            <a href="/resources">Resources</a>
+        </div>
+        {
+            title && title !== "Carlos Burelo" && (
+                <div class="nav-title" id="nav-title">
+                    <span>{title}</span>
+                </div>
+            )
+        }
+    </div>
 </nav>
 
 <style>
-    @keyframes scroll-collapse {
+    :root {
+        --c: cubic-bezier(0.34, 1.56, 0.64, 1);
+        --duration: 0.4s;
+        --separation: 1.5em;
+    }
+
+    .progress-circle {
+        position: relative;
+        width: 2em;
+        height: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .progress-circle svg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform: rotate(-90deg);
+    }
+
+    .progress-bg {
+        fill: none;
+        stroke: var(--border-color);
+        stroke-width: 2;
+        opacity: 0.3;
+    }
+
+    .progress-bar {
+        fill: none;
+        stroke: var(--primary-color);
+        stroke-width: 2;
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        stroke-linecap: round;
+        animation: scroll-progress linear;
+        animation-timeline: scroll(root);
+    }
+
+    .home-link {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        transition: transform 0.2s ease;
+        text-decoration: none;
+    }
+
+    .home-link:hover {
+        transform: scale(1.1);
+    }
+
+    @keyframes scroll-progress {
         to {
-            height: 60px;
-            border: solid 1px var(--border-color);
+            stroke-dashoffset: 0;
         }
     }
+
     nav {
-        top: 0;
+        z-index: var(--z-index-navbar);
+        top: var(--separation);
+        position: sticky;
+        max-width: fit-content;
+        margin: var(--separation) auto;
         display: grid;
         grid-auto-flow: column;
-        justify-content: space-between;
-        align-content: center;
-        background-color: var(--background-color-navbar);
+        gap: 1em;
+        padding: 0.25em 0.75em;
         backdrop-filter: blur(5em);
-        position: sticky;
-        animation: scroll-collapse linear both 0.2s;
-        animation-timeline: scroll();
-        height: 100px;
-        animation-range: 0px 100px;
-        border: solid 1px transparent;
-        z-index: var(--z-index-navbar);
+        background-color: var(--background-color-navbar);
+        border: solid 1px var(--border-color);
+        border-radius: 1em;
+        user-select: none;
     }
-    a {
+
+    div[role="separator"] {
+        width: 1px;
+        background-color: var(--border-color);
+        border-radius: 1px;
+    }
+
+    .nav-content {
+        position: relative;
+        display: flex;
+        align-items: center;
+        min-height: 1.5em;
+        min-width: 200px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 1em;
+        width: 100%;
+        opacity: 1;
+        transform: translateY(0);
+        transition: all var(--duration) var(--c);
+    }
+
+    .nav-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all var(--duration) var(--c);
+        white-space: nowrap;
+        pointer-events: none;
+    }
+
+    .nav-title span {
+        font-weight: 500;
+        color: var(--foreground-color-titles);
+        font-size: 0.9em;
+        max-width: 25ch;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .nav-title.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .nav-links.hidden {
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+    }
+
+    a:not(.home-link) {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.25em;
+        transition:
+            padding var(--duration) var(--c),
+            margin var(--duration) var(--c),
+            z-index var(--duration);
+    }
+
+    a:not(.home-link):hover {
+        padding-inline: 0.5em;
         color: var(--foreground-color-titles);
     }
 </style>
+
+<script>
+    const navLinks = document.getElementById("nav-links");
+    const navTitle = document.getElementById("nav-title");
+    const articleHeader = document.querySelector("article header");
+
+    if (navLinks && navTitle && articleHeader) {
+        const toggleNavbar = (showTitle: boolean) => {
+            navLinks.classList.toggle("hidden", showTitle);
+            navTitle.classList.toggle("active", showTitle);
+        };
+
+        new IntersectionObserver(
+            ([entry]) => {
+                toggleNavbar(
+                    !entry.isIntersecting && entry.boundingClientRect.top < 0,
+                );
+            },
+            { rootMargin: "-80px 0px 0px 0px" },
+        ).observe(articleHeader);
+    }
+</script>

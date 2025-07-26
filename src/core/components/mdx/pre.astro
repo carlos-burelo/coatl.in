@@ -11,9 +11,19 @@ const props = Astro.props;
         /* background-color: var(--background-code-block) !important; */
         background-color: var(--background-pre) !important;
         border: solid 0.1em var(--border-color);
-        backdrop-filter: blur(1px);
+        backdrop-filter: blur(12px);
         padding: 1em;
         border-radius: 0.5em;
         display: grid;
+    }
+    pre::-webkit-scrollbar {
+        height: 8px;
+    }
+    pre::-webkit-scrollbar-thumb {
+        background-color: var(--border-color);
+        border-radius: 4px;
+    }
+    pre::-webkit-scrollbar-track {
+        background-color: var(--background-color);
     }
 </style>

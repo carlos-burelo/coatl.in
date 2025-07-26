@@ -1,10 +1,13 @@
 ---
 import Icon from "#components/elements/icon.astro";
+import { LANGUAGE_COLORS } from "../../constants/colors.ts";
 const { data, slug } = Astro.props;
 ---
 
 <a href={`/snippets/${slug}`}>
-    <i><Icon name={data.lang.toLowerCase()} /></i>
+    <i style={`color: ${LANGUAGE_COLORS[data.lang.toLowerCase()]};`}
+        ><Icon name={data.lang.toLowerCase()} /></i
+    >
     <h4>{data.title}</h4>
 </a>
 

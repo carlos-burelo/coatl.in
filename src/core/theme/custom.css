@@ -3,7 +3,11 @@ html {
     accent-color: var(--primary-color);
     color: var(--foreground-color-titles);
     scroll-behavior: smooth;
-    font-family: 'IBM Plex Sans', sans-serif, system-ui;
+    font-family: 'IBM', sans-serif, system-ui;
+}
+
+code {
+    font-family: 'IBM Code', monospace;
 }
 
 ::selection {
@@ -66,8 +70,16 @@ time {
     border-radius: 0.25em;
     width: fit-content;
     height: fit-content;
+    text-wrap: nowrap;
+    text-transform: uppercase;
 }
 
 @view-transition {
     navigation: auto;
+}
+
+
+summary:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }

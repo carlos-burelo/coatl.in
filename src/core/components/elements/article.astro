@@ -1,7 +1,5 @@
 ---
-import BackButton from "./back-button.astro";
-import TableOfContents from "./table-of-contents.astro";
-import { prettyDate } from "../../libs/parsers";
+import { prettyShortDate } from "../../libs/parsers";
 
 export interface Props {
     entry: Post;
@@ -11,35 +9,29 @@ export interface Props {
 const { entry, headings } = Astro.props;
 const { title } = entry.data;
 const { updatedAt, createdAt } = entry.data;
-const date = prettyDate(createdAt);
-const minutes = Math.ceil(entry.body.split(" ").length / 200);
-const readingTime = minutes > 1 ? `${minutes} minutos` : "1 minuto";
 const isUpdated = updatedAt.getTime() !== createdAt.getTime();
-const updatedDate = prettyDate(updatedAt);
+const displayDate = prettyShortDate(isUpdated ? updatedAt : createdAt);
+const minutes = Math.ceil(entry.body.split(" ").length / 200);
+const readingTime = minutes > 1 ? `${minutes} min` : "1 min";
+const dateTime = isUpdated ? updatedAt.toISOString() : createdAt.toISOString();
 ---
 
 <article>
-    <BackButton />
     <header>
         <h1>{title}</h1>
         <div class="meta">
             <div class="info">
-                <span>{date}</span>
+                <div class="date-badge-container">
+                    <time datetime={dateTime}>{displayDate}</time>
+                    {isUpdated && <span class="badge" title="Actualizado" />}
+                </div>
                 <span> / </span>
                 <span>{readingTime}</span>
             </div>
-            {
-                isUpdated && (
-                    <time datetime={updatedAt.toDateString()}>
-                        Ultima actualización: {updatedDate}
-                    </time>
-                )
-            }
         </div>
     </header>
     <slot />
 </article>
-<TableOfContents headings={headings} />
 
 <style>
     h1 {
@@ -50,7 +42,6 @@ const updatedDate = prettyDate(updatedAt);
     article {
         display: grid;
         gap: 1em;
-        margin-top: 4em;
     }
     :global(h1, h2, h3, h4, h5, h6) {
         scroll-margin-top: 3em;
@@ -64,6 +55,10 @@ const updatedDate = prettyDate(updatedAt);
     }
     .info {
         color: var(--foreground-color-paragraph);
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 1em;
     }
     .meta {
         display: grid;
@@ -71,5 +66,20 @@ const updatedDate = prettyDate(updatedAt);
         grid-auto-flow: column;
         align-items: center;
         justify-content: flex-start;
+    }
+    .date-badge-container {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+    }
+    .badge {
+        position: absolute;
+        top: -0.25em;
+        right: -0.25em;
+        width: 8px;
+        height: 8px;
+        background: var(--primary-color, #e63946);
+        border-radius: 50%;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
     }
 </style>

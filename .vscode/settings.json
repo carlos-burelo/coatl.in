@@ -1,0 +1,11 @@
+{
+  "files.exclude": {
+    ".astro": true,
+    "node_modules": true,
+    ".gitignore": true,
+    // "astro.config.ts": true,
+    "README.md": true,
+    "pnpm-lock.yaml": true,
+    "tsconfig.json": true,
+  }
+}

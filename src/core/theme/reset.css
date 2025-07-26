@@ -10,6 +10,33 @@ body {
     min-height: 100dvh;
 }
 
+body>div::after,
+body>div::before {
+    content: '';
+    width: 300px;
+    height: 300px;
+    position: fixed;
+    background: linear-gradient(45deg, #f06, transparent);
+    filter: blur(10em);
+    z-index: -1;
+    opacity: 0.1;
+    border-radius: 50%;
+}
+
+body>div::after {
+    background: linear-gradient(45deg, #f06, transparent);
+    left: auto;
+    right: 0;
+    bottom: 0;
+}
+
+body>div::before {
+    background: linear-gradient(45deg, #09f, transparent);
+    left: 0;
+    top: 0;
+    right: auto;
+}
+
 input,
 button,
 textarea,
@@ -34,8 +61,10 @@ img,
 video {
     height: auto;
     max-width: 100%;
+    width: 100%;
     object-fit: contain;
 }
+
 
 svg {
     width: 1.5em;

@@ -1,12 +1,27 @@
 ---
-const fotos = ["/img3.avif", "/img1.avif", "/img2.avif"];
+import { Image } from "astro:assets";
+import img1 from "../../../../public/img1.avif";
+import img2 from "../../../../public/img2.avif";
+import img3 from "../../../../public/img3.avif";
+
+const fotos = [img3, img1, img2];
 ---
 
 <section>
     {
         fotos.map((foto) => (
             <div>
-                <img src={foto} alt="Foto de perfil" />
+                <Image
+                    class="img"
+                    src={foto}
+                    alt="Foto de perfil"
+                    loading="lazy"
+                    decoding="async"
+                    width={500}
+                    height={281}
+                    quality={85}
+                    format="avif"
+                />
             </div>
         ))
     }
@@ -25,7 +40,7 @@ const fotos = ["/img3.avif", "/img1.avif", "/img2.avif"];
         min-width: 200px;
         overflow: hidden;
     }
-    img {
+    .img {
         display: grid;
         width: 100%;
         border-radius: 0.75em;
@@ -37,7 +52,7 @@ const fotos = ["/img3.avif", "/img1.avif", "/img2.avif"];
             filter 0.3s ease-in-out,
             transform 0.3s ease-in-out;
     }
-    img:hover {
+    .img:hover {
         filter: grayscale(0%);
         transform: scale(1.01);
     }
