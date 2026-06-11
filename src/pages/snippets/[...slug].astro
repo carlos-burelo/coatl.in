@@ -2,6 +2,7 @@
 import BackButton from "../../core/components/elements/back-button.astro";
 import Root from "../../core/components/layout/root.astro";
 import components from "../../core/components/mdx";
+import type { getStaticPaths } from "../blog/[...slug].astro";
 export { getSnippets as getStaticPaths } from "../../core/libs/providers";
 
 export const prerender = true;
@@ -11,7 +12,6 @@ const { Content } = await entry.render();
 ---
 
 <Root>
-    <BackButton />
     <h1>{entry.data.title}</h1>
     <article>
         <Content components={components} />

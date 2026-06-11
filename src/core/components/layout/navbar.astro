@@ -19,9 +19,18 @@ const { title } = Astro.props;
     <div role="separator"></div>
     <div class="nav-content">
         <div class="nav-links" id="nav-links">
-            <a href="/blog">Blog</a>
-            <a href="/snippets">Snippets</a>
-            <a href="/resources">Resources</a>
+            <a href="/blog">
+                <i>📑</i>
+                <span>Blog</span>
+            </a>
+            <a href="/snippets">
+                <i>📦</i>
+                <span>Snippets</span>
+            </a>
+            <a href="/resources">
+                <i>📚</i>
+                <span>Resources</span>
+            </a>
         </div>
         {
             title && title !== "Carlos Burelo" && (
@@ -116,6 +125,8 @@ const { title } = Astro.props;
 
     div[role="separator"] {
         width: 1px;
+        margin: auto;
+        height: 70%;
         background-color: var(--border-color);
         border-radius: 1px;
     }
@@ -157,7 +168,7 @@ const { title } = Astro.props;
         font-weight: 500;
         color: var(--foreground-color-titles);
         font-size: 0.9em;
-        max-width: 25ch;
+        max-width: 90%;
         overflow: hidden;
         text-overflow: ellipsis;
     }
@@ -174,12 +185,27 @@ const { title } = Astro.props;
         pointer-events: none;
     }
 
+    i {
+        font-style: normal;
+    }
+
+    @media (width < 600px) {
+        .nav-content {
+            min-width: 100%;
+        }
+
+        a span {
+            display: none;
+        }
+    }
+
     a:not(.home-link) {
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 0.25em;
+        gap: 0.25em;
         transition:
             padding var(--duration) var(--c),
             margin var(--duration) var(--c),

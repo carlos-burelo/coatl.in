@@ -2,10 +2,14 @@
 import Icon from "#components/elements/icon.astro";
 import { LANGUAGE_COLORS } from "../../constants/colors.ts";
 const { data, slug } = Astro.props;
+
+const COLOR = LANGUAGE_COLORS[data.lang.toLowerCase()];
+
+const VARIABLE_NAME = `${COLOR}-translucent`;
 ---
 
 <a href={`/snippets/${slug}`}>
-    <i style={`color: ${LANGUAGE_COLORS[data.lang.toLowerCase()]};`}
+    <i style={`color: var(${VARIABLE_NAME});`}
         ><Icon name={data.lang.toLowerCase()} /></i
     >
     <h4>{data.title}</h4>
@@ -30,6 +34,5 @@ const { data, slug } = Astro.props;
         right: 0.5em;
         font-size: 3em;
         z-index: 0;
-        opacity: 0.1;
     }
 </style>
