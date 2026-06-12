@@ -1,67 +1,88 @@
 ---
 import Icon from "#components/elements/icon.astro";
+import { Image } from "astro:assets";
+import logo from "../../../../public/logo.svg";
 ---
 
-<footer>
-    <section class="wrapper">
-        <i>
-            <Icon name="coatl" />
-        </i>
-        <div class="container">
-            <div class="links">
-                <a href="/">Inicio</a>
-                <a href="/blog">Blog</a>
-                <a href="/snippets">Snippets</a>
-                <a href="/works">Proyectos</a>
-                <a href="/resources">Recursos</a>
+<footer class="px-body-sm xs:px-body-md md:px-body-lg xl:px-body-xl 2xl:px-body-2xl pt-12 pb-8 mt-16 border-t border-border">
+    <div class="grid grid-cols-[1fr_auto] items-start gap-8 max-sm:grid-cols-1 mb-8">
+
+        <!-- brand col -->
+        <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-2">
+                <Image src={logo} alt="Logo" width={32} height={32} class="w-8 h-8 object-contain" />
+                <span class="font-semibold text-fg-titles">Carlos Burelo</span>
             </div>
-            <div class="contact">
-                <a href="https://github.com/carlos-burelo">
+            <p class="text-xs text-fg-paragraph max-w-xs leading-relaxed">
+                Desarrollador web especializado en convertir ideas en software simple, claro y efectivo.
+            </p>
+            <div class="flex gap-3 mt-1">
+                <a href="https://github.com/carlos-burelo" target="_blank" rel="noopener" class="text-fg-paragraph hover:text-primary transition-colors">
                     <Icon name="github" />
+                </a>
+                <a href="https://linkedin.com/in/carlos-burelo" target="_blank" rel="noopener" class="text-fg-paragraph hover:text-primary transition-colors">
+                    <Icon name="linkedin" />
                 </a>
             </div>
         </div>
-    </section>
-    <span>© {new Date().getFullYear()} Carlos Burelo — México</span>
+
+        <!-- nav cols -->
+        <div class="flex gap-12 max-sm:gap-8">
+            <div class="flex flex-col gap-2">
+                <span class="text-xs font-semibold uppercase tracking-widest text-fg-paragraph mb-1">Contenido</span>
+                <a href="/blog" class="text-sm text-fg-links hover:text-primary transition-colors">Blog</a>
+                <a href="/snippets" class="text-sm text-fg-links hover:text-primary transition-colors">Snippets</a>
+                <a href="/resources" class="text-sm text-fg-links hover:text-primary transition-colors">Recursos</a>
+            </div>
+            <div class="flex flex-col gap-2">
+                <span class="text-xs font-semibold uppercase tracking-widest text-fg-paragraph mb-1">Trabajo</span>
+                <a href="/works" class="text-sm text-fg-links hover:text-primary transition-colors">Proyectos</a>
+                <a href="mailto:carlosfernandoburelo@gmail.com" class="text-sm text-fg-links hover:text-primary transition-colors">Contacto</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- bottom bar -->
+    <div class="flex items-center justify-between pt-6 border-t border-border max-sm:flex-col max-sm:gap-2 max-sm:items-start">
+        <span class="text-xs text-fg-paragraph">MIT {new Date().getFullYear()} — Carlos Burelo</span>
+        <div class="flex items-center gap-4">
+            <button
+                id="theme-toggle"
+                aria-label="Cambiar tema"
+                class="flex items-center gap-1.5 text-xs text-fg-paragraph hover:text-primary transition-colors px-2.5 py-1 rounded-full border border-border hover:border-primary"
+            >
+                <span id="theme-icon">☀️</span>
+                <span id="theme-label">Modo claro</span>
+            </button>
+            <span class="text-xs text-fg-paragraph">Hecho con <a href="https://astro.build" target="_blank" rel="noopener" class="hover:text-primary transition-colors">Astro</a></span>
+        </div>
+    </div>
 </footer>
 
-<style>
-    footer {
-        padding-inline: var(--body-inner-separation);
-        padding-block: 2em;
-    }
-    .container {
-        display: grid;
-        grid-auto-flow: column;
-        justify-content: space-between;
-        gap: 1em;
-    }
-    .links {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 1em;
+<script>
+    function initTheme() {
+        const btn = document.getElementById('theme-toggle');
+        const icon = document.getElementById('theme-icon');
+        const label = document.getElementById('theme-label');
+        if (!btn || !icon || !label) return;
+
+        const isLight = () => document.documentElement.getAttribute('data-theme') === 'light';
+
+        const update = () => {
+            icon.textContent = isLight() ? '🌙' : '☀️';
+            label.textContent = isLight() ? 'Modo oscuro' : 'Modo claro';
+        };
+
+        update();
+
+        btn.addEventListener('click', () => {
+            const next = isLight() ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', next);
+            document.cookie = `theme=${next}; path=/; max-age=31536000; SameSite=Lax`;
+            update();
+        });
     }
 
-    .wrapper {
-        grid-template-columns: auto 1fr;
-        align-items: center;
-    }
-    i {
-        background-color: var(--background-color-secondary);
-        display: grid;
-        place-items: center;
-        border-radius: 0.25em;
-        padding: 0.5em;
-        width: fit-content;
-        font-size: 1.5em;
-        color: var(--foreground-color-titles);
-    }
-
-    a {
-        transition: color 0.2s ease-in-out;
-    }
-    a:hover {
-        color: var(--primary-color);
-    }
-</style>
+    document.addEventListener('astro:page-load', initTheme);
+</script>

@@ -1,37 +1,44 @@
 ---
-import { Image } from "astro:assets";
-// Importa la imagen como asset
-import profileImage from "../../../../public/profile.webp";
+import ProjectPlaceholder from "#components/elements/project-placeholder.astro";
+
+export interface Props {
+    title: string;
+    description: string;
+    image: string;
+    preview: string;
+    repository: string;
+    tags: string[];
+    stack: Record<string, number>;
+    colClass?: string;
+}
+
+const { title, description, preview, repository, tags, stack, colClass = '' } = Astro.props;
 ---
 
-<a href="/#">
-    <Image
-        class="img"
-        src={profileImage}
-        alt="Imagen alternativa"
-        loading="eager"
-        decoding="async"
-        width={500}
-        height={281}
-        quality={100}
-        format="webp"
-    />
-    <span class="name">Project Name</span>
-</a>
+<div class={`group relative flex flex-col rounded-2xl border border-border bg-bg-secondary overflow-hidden transition-all duration-300 hover:border-primary min-h-64 ${colClass}`}>
+    <!-- full-bleed placeholder -->
+    <div class="absolute inset-0">
+        <ProjectPlaceholder title={title} stack={stack} />
+    </div>
 
-<style>
-    .img {
-        border-radius: 1em;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-        content-visibility: auto;
-        max-width: 450px;
-        width: 450px;
-    }
-    @media (width <= 600px) {
-        .img {
-            width: 100%;
-            max-width: 100%;
-        }
-    }
-</style>
+    <!-- bottom overlay -->
+    <div class="absolute inset-x-0 bottom-0 flex flex-col gap-2 p-4 bg-linear-to-t from-black/80 via-black/50 to-transparent">
+        <div class="flex flex-col gap-0.5">
+            <h3 class="text-white font-semibold group-hover:text-primary transition-colors leading-tight">{title}</h3>
+            <p class="text-white/70 text-xs leading-relaxed line-clamp-2">{description}</p>
+        </div>
+        <div class="flex items-center justify-between">
+            <div class="flex flex-wrap gap-1">
+                {tags.slice(0, 3).map((tag: string) => (
+                    <span class="text-[0.6em] px-1.5 py-0.5 rounded border border-white/20 text-white/60 uppercase tracking-wide bg-white/5">
+                        {tag}
+                    </span>
+                ))}
+            </div>
+            <div class="flex gap-3 shrink-0">
+                <a href={preview} target="_blank" rel="noopener noreferrer" class="text-xs text-white/60 hover:text-primary transition-colors">↗ Preview</a>
+                <a href={repository} target="_blank" rel="noopener noreferrer" class="text-xs text-white/60 hover:text-primary transition-colors">↗ GitHub</a>
+            </div>
+        </div>
+    </div>
+</div>

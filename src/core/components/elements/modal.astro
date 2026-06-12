@@ -2,8 +2,11 @@
 const { id } = Astro.props;
 ---
 
-<dialog id={id}>
-    <div>
+<dialog
+    id={id}
+    class="min-w-87.5 min-h-fit max-h-87.5 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-border bg-bg-dialog rounded-lg animate-[overlap_0.2s_ease-in-out] backdrop:inset-0 backdrop:backdrop-blur-sm backdrop:bg-bg-backdrop"
+>
+    <div class="p-2 grid gap-4 bg-bg relative">
         <slot />
     </div>
 </dialog>
@@ -16,35 +19,14 @@ const { id } = Astro.props;
         }
         to {
             opacity: 1;
+            transform: translate(-50%, -50%);
         }
     }
-
-    dialog {
-        min-width: 350px;
-        min-height: fit-content;
-        max-height: 350px;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border: solid 1px var(--border-color);
-        background-color: var(--background-color-dialog);
-        border-radius: 0.5em;
-        animation: overlap ease-in-out 0.2s;
-    }
-
     dialog::backdrop {
         inset: 0px;
         backdrop-filter: blur(4px);
         background-color: var(--background-color-backdrop);
         transition: background-color 0.2s ease-in-out;
-    }
-    div {
-        padding: 0.5em;
-        display: grid;
-        gap: 1em;
-        background-color: var(--background-color);
-        position: relative;
     }
 </style>
 

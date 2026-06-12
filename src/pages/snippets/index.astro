@@ -1,9 +1,9 @@
 ---
 import Root from "#components/layout/root.astro";
 import Snippets from "#components/sections/snippets.astro";
-import { getCollection } from "astro:content";
+import { getSnippets } from "#libs/providers";
 
-const snippets = await getCollection("snippets");
+const snippets = (await getSnippets()).map(({ props: { entry } }) => entry);
 ---
 
 <Root>

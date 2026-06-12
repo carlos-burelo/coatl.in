@@ -3,6 +3,7 @@ import ExperienceCart from "#components/cards/experience-card.astro";
 
 const events = [
     {
+        current: true,
         date: "Ene 2025 - Ahora",
         role: "Desarrollador de software",
         title: "Coordinación General de los Servicios Medicos UJAT",
@@ -33,18 +34,8 @@ const events = [
 ---
 
 <section>
-    <h2>Experience</h2>
-    <ul>
+    <h2 class="my-4">Experience</h2>
+    <ul class="grid [&>li:last-child_.line]:hidden">
         {events.map((event) => <ExperienceCart {...event} />)}
     </ul>
 </section>
-
-<style>
-    h2 {
-        margin-block: 1em;
-    }
-    ul {
-        gap: 1.5em;
-        display: grid;
-    }
-</style>

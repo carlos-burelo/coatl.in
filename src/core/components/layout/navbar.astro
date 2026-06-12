@@ -1,10 +1,12 @@
 ---
+import { Image } from "astro:assets";
+import pata from "../../../../public/pata.svg";
 const { title } = Astro.props;
 ---
 
-<nav>
-    <div class="progress-circle">
-        <svg viewBox="0 0 36 36">
+<nav class="sticky top-body-md z-navbar max-w-fit mx-auto my-body-md grid grid-flow-col gap-4 px-3 py-1 backdrop-blur-[5em] bg-bg-navbar border border-border rounded-[1em] select-none">
+    <div class="progress-circle relative w-[2em] h-[2em] flex items-center justify-center">
+        <svg viewBox="0 0 36 36" class="absolute w-full h-full -rotate-90">
             <path
                 class="progress-bg"
                 d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
@@ -14,55 +16,44 @@ const { title } = Astro.props;
                 d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
             ></path>
         </svg>
-        <a href="/" class="home-link">🐍</a>
+        <a href="/" class="home-link relative z-10 flex items-center justify-center w-full h-full rounded-full transition-transform duration-200 ease-in-out hover:scale-110 no-underline">
+            <Image src={pata} alt="Home" width={24} height={24} class="w-5 h-5 object-contain"  />
+        </a>
     </div>
-    <div role="separator"></div>
-    <div class="nav-content">
-        <div class="nav-links" id="nav-links">
-            <a href="/blog">
-                <i>📑</i>
-                <span>Blog</span>
+    <div role="separator" class="w-px my-auto h-[70%] bg-border rounded-sm"></div>
+    <div class="nav-content relative flex items-center min-h-body-md min-w-50 max-sm:min-w-full">
+        <div class="nav-links flex gap-4 w-full opacity-100 translate-y-0 transition-nav" id="nav-links">
+            <a href="/blog" class="nav-link relative flex justify-center items-center gap-1 py-1 px-1 transition-nav hover:px-2 hover:text-fg-titles">
+                <i class="not-italic">📑</i>
+                <span class="max-sm:hidden">Blog</span>
             </a>
-            <a href="/snippets">
-                <i>📦</i>
-                <span>Snippets</span>
+            <a href="/snippets" class="nav-link relative flex justify-center items-center gap-1 py-1 px-1 transition-nav hover:px-2 hover:text-fg-titles">
+                <i class="not-italic">📦</i>
+                <span class="max-sm:hidden">Snippets</span>
             </a>
-            <a href="/resources">
-                <i>📚</i>
-                <span>Resources</span>
+            <a href="/resources" class="nav-link relative flex justify-center items-center gap-1 py-1 px-1 transition-nav hover:px-2 hover:text-fg-titles">
+                <i class="not-italic">📚</i>
+                <span class="max-sm:hidden">Resources</span>
             </a>
         </div>
         {
             title && title !== "Carlos Burelo" && (
-                <div class="nav-title" id="nav-title">
-                    <span>{title}</span>
+                <div class="nav-title absolute inset-0 flex justify-center items-center opacity-0 scale-95 transition-nav whitespace-nowrap pointer-events-none" id="nav-title">
+                    <span class="font-medium text-fg-titles text-[0.9em] max-w-[90%] overflow-hidden text-ellipsis">{title}</span>
                 </div>
             )
         }
     </div>
 </nav>
 
-<style>
+<style is:global>
     :root {
         --c: cubic-bezier(0.34, 1.56, 0.64, 1);
         --duration: 0.4s;
-        --separation: 1.5em;
     }
 
-    .progress-circle {
-        position: relative;
-        width: 2em;
-        height: 2em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .progress-circle svg {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        transform: rotate(-90deg);
+    .transition-nav {
+        transition: all var(--duration) var(--c);
     }
 
     .progress-bg {
@@ -83,138 +74,22 @@ const { title } = Astro.props;
         animation-timeline: scroll(root);
     }
 
-    .home-link {
-        position: relative;
-        z-index: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        transition: transform 0.2s ease;
-        text-decoration: none;
-    }
-
-    .home-link:hover {
-        transform: scale(1.1);
-    }
-
     @keyframes scroll-progress {
         to {
             stroke-dashoffset: 0;
         }
     }
 
-    nav {
-        z-index: var(--z-index-navbar);
-        top: var(--separation);
-        position: sticky;
-        max-width: fit-content;
-        margin: var(--separation) auto;
-        display: grid;
-        grid-auto-flow: column;
-        gap: 1em;
-        padding: 0.25em 0.75em;
-        backdrop-filter: blur(5em);
-        background-color: var(--background-color-navbar);
-        border: solid 1px var(--border-color);
-        border-radius: 1em;
-        user-select: none;
-    }
-
-    div[role="separator"] {
-        width: 1px;
-        margin: auto;
-        height: 70%;
-        background-color: var(--border-color);
-        border-radius: 1px;
-    }
-
-    .nav-content {
-        position: relative;
-        display: flex;
-        align-items: center;
-        min-height: 1.5em;
-        min-width: 200px;
-    }
-
-    .nav-links {
-        display: flex;
-        gap: 1em;
-        width: 100%;
-        opacity: 1;
-        transform: translateY(0);
-        transition: all var(--duration) var(--c);
-    }
-
-    .nav-title {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all var(--duration) var(--c);
-        white-space: nowrap;
-        pointer-events: none;
-    }
-
-    .nav-title span {
-        font-weight: 500;
-        color: var(--foreground-color-titles);
-        font-size: 0.9em;
-        max-width: 90%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
     .nav-title.active {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
         pointer-events: auto;
     }
 
     .nav-links.hidden {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: scale(0.95);
         pointer-events: none;
-    }
-
-    i {
-        font-style: normal;
-    }
-
-    @media (width < 600px) {
-        .nav-content {
-            min-width: 100%;
-        }
-
-        a span {
-            display: none;
-        }
-    }
-
-    a:not(.home-link) {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0.25em;
-        gap: 0.25em;
-        transition:
-            padding var(--duration) var(--c),
-            margin var(--duration) var(--c),
-            z-index var(--duration);
-    }
-
-    a:not(.home-link):hover {
-        padding-inline: 0.5em;
-        color: var(--foreground-color-titles);
     }
 </style>
 

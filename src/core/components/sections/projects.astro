@@ -1,45 +1,28 @@
 ---
 import ProjectCard from "#components/cards/project-card.astro";
+import { getCollection } from "astro:content";
 
-const projects = Array.from({ length: 3 });
+const works = await getCollection("works");
 ---
 
 <section>
-    <h2>Proyectos</h2>
-    <div>
-        {projects.map(() => <ProjectCard />)}
+    <h2 class="my-4">Proyectos</h2>
+    <div class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- row 1: wide + normal -->
+        <ProjectCard {...works[0].data} colClass="xs:col-span-2 md:col-span-2 min-h-64 md:min-h-72" />
+        <ProjectCard {...works[1].data} colClass="col-span-1 min-h-64 md:min-h-72" />
+        <!-- row 2: normal + wide -->
+        <ProjectCard {...works[2].data} colClass="col-span-1 min-h-64 md:min-h-72" />
+        <ProjectCard {...works[3].data} colClass="xs:col-span-2 md:col-span-2 min-h-64 md:min-h-72" />
+        <!-- row 3: wide + ver todos -->
+        <ProjectCard {...works[4].data} colClass="xs:col-span-2 md:col-span-2 min-h-64 md:min-h-72" />
+        <a
+            href="/works"
+            class="col-span-1 flex flex-col items-center justify-center gap-3 p-5 rounded-2xl border border-border bg-bg-secondary min-h-48 text-fg-paragraph hover:border-primary hover:text-primary transition-all duration-300 group"
+        >
+            <span class="text-3xl transition-transform duration-300 group-hover:scale-110">→</span>
+            <span class="text-sm font-medium uppercase tracking-widest">Ver todos</span>
+            <span class="text-xs text-fg-paragraph">{works.length} proyectos</span>
+        </a>
     </div>
 </section>
-
-<style>
-    h2 {
-        margin-block: 1em;
-    }
-    div {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 1em;
-        padding-bottom: 1em;
-    }
-    div::-webkit-scrollbar {
-        height: 8px;
-    }
-    div::-webkit-scrollbar-thumb {
-        background-color: var(--border-color);
-        border-radius: 4px;
-    }
-    div::-webkit-scrollbar-track {
-        background-color: var(--background-color);
-    }
-
-    @media (max-width: 600px) {
-        div {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1em;
-            overflow-x: unset;
-            scroll-snap-type: none;
-        }
-    }
-</style>

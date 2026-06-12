@@ -2,15 +2,6 @@
 const props = Astro.props
 ---
 
-<blockquote {...props}>
+<blockquote {...props} class="mb-6 px-6 border-l-[0.15em] border-border text-fg-titles">
   <slot />
 </blockquote>
-
-<style>
-  blockquote {
-    margin: 0 0 1.5em;
-    padding: 0 1.5em;
-    border-left: 0.15em solid var(--border-color);
-    color: var(--foreground-color-titles);
-  }
-</style>

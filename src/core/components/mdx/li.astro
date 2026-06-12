@@ -2,19 +2,10 @@
 const props = Astro.props;
 ---
 
-<li {...props}>
+<li {...props} class="list-inside text-fg-paragraph marker:text-primary">
     <slot />
 </li>
 
 <style>
-    li {
-        list-style: inside;
-        color: var(--foreground-color-paragraph);
-    }
-    li::marker {
-        color: var(--primary-color);
-    }
-    :global(li > *) {
-        display: inline;
-    }
+    :global(li > *) { display: inline; }
 </style>

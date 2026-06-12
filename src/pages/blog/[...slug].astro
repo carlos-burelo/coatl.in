@@ -2,12 +2,13 @@
 import Article from "#components/elements/article.astro";
 import Root from "#components/layout/root.astro";
 import components from "#components/mdx";
+import { render } from "astro:content";
 export { getPosts as getStaticPaths } from "#libs/providers";
 
 export const prerender = true;
 
 const { entry } = Astro.props;
-const { Content, headings } = await entry.render();
+const { Content, headings } = await render(entry);
 const { title } = entry.data;
 ---
 

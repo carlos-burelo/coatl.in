@@ -1,9 +1,10 @@
 ---
-import Navbar from "#components/layout/navbar.astro";
-import { SEO } from "astro-seo";
-import "../../theme/main.css";
-import Fonts from "./fonts.astro";
-import Footer from "./footer.astro";
+import Navbar from "#components/layout/navbar.astro"
+import { SEO } from "astro-seo"
+import { ClientRouter } from "astro:transitions"
+import "../../theme/main.css"
+import Fonts from "./fonts.astro"
+import Footer from "./footer.astro"
 
 const { title = "Carlos Burelo", articleTitle } = Astro.props;
 const navbarTitle = articleTitle || title;
@@ -19,6 +20,15 @@ const navbarTitle = articleTitle || title;
         <title>Carlos Burelo - Software Engineer</title>
         <SEO title="Carlos Burelo - Software Engineer" />
         <Fonts />
+        <ClientRouter />
+        <script is:inline>
+            function applyTheme() {
+                const theme = document.cookie.match(/theme=([^;]+)/)?.[1] ?? 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            }
+            applyTheme();
+            document.addEventListener('astro:after-swap', applyTheme);
+        </script>
     </head>
     <body>
         <Navbar title={navbarTitle} />

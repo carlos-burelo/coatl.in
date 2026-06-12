@@ -1,4 +1,308 @@
-@import './colors.css';
-@import './variables.css';
-@import './reset.css';
-@import './custom.css';
+@import "tailwindcss";
+
+@theme inline {
+    /* Colors — point to CSS vars so themes can override at runtime */
+    --color-primary:        var(--t-primary);
+    --color-bg:             var(--t-bg);
+    --color-bg-secondary:   var(--t-bg-secondary);
+    --color-bg-navbar:      var(--t-bg-navbar);
+    --color-bg-backdrop:    var(--t-bg-backdrop);
+    --color-bg-link-hover:  var(--t-bg-link-hover);
+    --color-bg-emphasis:    var(--t-bg-emphasis);
+    --color-bg-dialog:      var(--t-bg-dialog);
+    --color-bg-code-block:  var(--t-bg-code-block);
+    --color-bg-pre:         var(--t-bg-pre);
+    --color-border:         var(--t-border);
+    --color-fg-icon:        var(--t-fg-icon);
+    --color-fg-paragraph:   var(--t-fg-paragraph);
+    --color-fg-titles:      var(--t-fg-titles);
+    --color-fg-links:       var(--t-fg-links);
+
+    /* Spacing */
+    --spacing-body-sm: 1em;
+    --spacing-body-md: 1.5em;
+    --spacing-body-lg: 3em;
+    --spacing-body-xl: 18em;
+    --spacing-body-2xl: 30em;
+
+    /* Breakpoints matching body-inner-separation */
+    --breakpoint-xs: 500px;
+    --breakpoint-md: 900px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-2xl: 1600px;
+
+    /* Z-index */
+    --z-index-body: 0;
+    --z-index-navbar: 100;
+    --z-index-dialog: 200;
+
+    /* Font families */
+    --font-family-sans: 'IBM', sans-serif, system-ui;
+    --font-family-mono: 'IBM Code', monospace;
+}
+
+/* Dark theme (default) */
+:root {
+    --t-primary:        #4a80e8;
+    --t-bg:             #080b0f;
+    --t-bg-secondary:   #20242d89;
+    --t-bg-navbar:      #1926352e;
+    --t-bg-backdrop:    #0a0b0eb1;
+    --t-bg-link-hover:  #5c88f60c;
+    --t-bg-emphasis:    #5c88f612;
+    --t-bg-dialog:      #080b0f;
+    --t-bg-code-block:  #0a0b0eb1;
+    --t-bg-pre:         #171a2216;
+    --t-border:         #20242d;
+    --t-fg-icon:        #8994ae;
+    --t-fg-paragraph:   #8994ae;
+    --t-fg-titles:      #e2eafd;
+    --t-fg-links:       #acb5c7;
+
+    /* legacy aliases for JS/animations */
+    --primary-color:                    var(--t-primary);
+    --background-color:                 var(--t-bg);
+    --background-color-secondary:       var(--t-bg-secondary);
+    --background-color-navbar:          var(--t-bg-navbar);
+    --background-color-backdrop:        var(--t-bg-backdrop);
+    --background-color-link-hover:      var(--t-bg-link-hover);
+    --background-color-emphasis:        var(--t-bg-emphasis);
+    --background-color-dialog:          var(--t-bg-dialog);
+    --background-code-block:            var(--t-bg-code-block);
+    --background-pre:                   var(--t-bg-pre);
+    --border-color:                     var(--t-border);
+    --foreground-color-icon:            var(--t-fg-icon);
+    --foreground-color-paragraph:       var(--t-fg-paragraph);
+    --foreground-color-titles:          var(--t-fg-titles);
+    --foreground-color-links:           var(--t-fg-links);
+    --z-index-body: 0;
+    --z-index-navbar: 100;
+    --z-index-dialog: 200;
+}
+
+/* Dark theme explicit (matches when data-theme="dark" is set) */
+[data-theme="dark"] {
+    --t-primary:        #4a80e8;
+    --t-bg:             #080b0f;
+    --t-bg-secondary:   #20242d89;
+    --t-bg-navbar:      #1926352e;
+    --t-bg-backdrop:    #0a0b0eb1;
+    --t-bg-link-hover:  #5c88f60c;
+    --t-bg-emphasis:    #5c88f612;
+    --t-bg-dialog:      #080b0f;
+    --t-bg-code-block:  #0a0b0eb1;
+    --t-bg-pre:         #171a2216;
+    --t-border:         #20242d;
+    --t-fg-icon:        #8994ae;
+    --t-fg-paragraph:   #8994ae;
+    --t-fg-titles:      #e2eafd;
+    --t-fg-links:       #acb5c7;
+    color-scheme: dark;
+}
+
+/* Light theme */
+[data-theme="light"] {
+    --t-primary:        #2563eb;
+    --t-bg:             #f8fafc;
+    --t-bg-secondary:   #e2e8f0cc;
+    --t-bg-navbar:      #ffffffcc;
+    --t-bg-backdrop:    #f1f5f9cc;
+    --t-bg-link-hover:  #2563eb0c;
+    --t-bg-emphasis:    #2563eb12;
+    --t-bg-dialog:      #f8fafc;
+    --t-bg-code-block:  #e2e8f0cc;
+    --t-bg-pre:         #e2e8f066;
+    --t-border:         #cbd5e1;
+    --t-fg-icon:        #64748b;
+    --t-fg-paragraph:   #475569;
+    --t-fg-titles:      #0f172a;
+    --t-fg-links:       #334155;
+    color-scheme: light;
+}
+
+@layer base {
+    *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        color-scheme: dark light;
+        accent-color: var(--primary-color);
+        color: var(--foreground-color-titles);
+        background-color: var(--background-color);
+        scroll-behavior: smooth;
+        font-family: var(--font-family-sans);
+    }
+
+    body {
+        min-height: 100dvh;
+        background-color: var(--background-color);
+        position: relative;
+        z-index: var(--z-index-body);
+    }
+
+    body > div::after,
+    body > div::before {
+        content: '';
+        width: 300px;
+        height: 300px;
+        position: fixed;
+        filter: blur(10em);
+        z-index: -1;
+        opacity: 0.1;
+        border-radius: 50%;
+    }
+
+    body > div::after {
+        background: linear-gradient(45deg, #f06, transparent);
+        left: auto;
+        right: 0;
+        bottom: 0;
+    }
+
+    body > div::before {
+        background: linear-gradient(45deg, #09f, transparent);
+        left: 0;
+        top: 0;
+        right: auto;
+    }
+
+    body > nav,
+    body > div {
+        @apply px-body-sm xs:px-body-md md:px-body-lg xl:px-body-xl 2xl:px-body-2xl;
+    }
+
+    input, button, textarea, select {
+        font: inherit;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--foreground-color-links);
+    }
+
+    p {
+        color: var(--foreground-color-paragraph);
+        text-wrap: pretty;
+        line-height: 1.9;
+    }
+
+    li {
+        line-height: 1.9;
+        list-style-position: inside;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        text-wrap: balance;
+        scroll-margin-top: 3em;
+    }
+
+    img, video {
+        height: auto;
+        max-width: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    svg {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+    code {
+        font-family: var(--font-family-mono);
+    }
+
+    section {
+        margin-block: 2em;
+        display: grid;
+        gap: 1em;
+    }
+
+    input {
+        background-color: var(--background-color);
+        border: solid 1px var(--border-color);
+        padding: 0.75em 1.5em;
+        border-radius: 0.5em;
+        display: grid;
+
+        &:focus {
+            outline: solid 1px var(--primary-color);
+        }
+    }
+
+    time {
+        color: var(--primary-color);
+        background-color: var(--background-color-emphasis);
+        padding: 0 0.5em;
+        border-radius: 0.25em;
+        width: fit-content;
+        height: fit-content;
+        text-wrap: nowrap;
+        text-transform: uppercase;
+    }
+
+    ::selection {
+        background-color: var(--background-color-emphasis);
+        color: var(--primary-color);
+    }
+
+    summary:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    /* override Shiki inline style on pre */
+    pre {
+        background-color: var(--background-pre) !important;
+        border: solid 0.1em var(--border-color);
+        backdrop-filter: blur(12px);
+        padding: 1em;
+        border-radius: 0.5em;
+        display: grid;
+        overflow-x: auto;
+    }
+
+    pre code {
+        display: grid;
+    }
+
+    code .line {
+        line-height: 1.8;
+        font-size: 0.9em;
+    }
+
+    :not(pre) > code {
+        background-color: var(--background-color-secondary);
+        color: var(--foreground-color-titles);
+        padding: 0 0.25em;
+        line-height: 1.3;
+        border-radius: 0.25em;
+        display: inline-grid;
+        font-size: 0.8em;
+    }
+}
+
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root) {
+    animation: 150ms ease-out both fade-out;
+}
+
+::view-transition-new(root) {
+    animation: 200ms ease-in both fade-in;
+}
+
+@keyframes fade-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

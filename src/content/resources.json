@@ -1,0 +1,128 @@
+[
+    {
+        "title": "MDN Web Docs",
+        "url": "https://developer.mozilla.org",
+        "description": "Referencia completa de HTML, CSS y JavaScript.",
+        "category": "Referencia",
+        "type": "website"
+    },
+    {
+        "title": "TypeScript Handbook",
+        "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+        "description": "Documentación oficial de TypeScript.",
+        "category": "Referencia",
+        "type": "website"
+    },
+    {
+        "title": "Astro Docs",
+        "url": "https://docs.astro.build",
+        "description": "Documentación oficial del framework Astro.",
+        "category": "Referencia",
+        "type": "website"
+    },
+    {
+        "title": "Excalidraw",
+        "url": "https://excalidraw.com",
+        "description": "Pizarra colaborativa para diagramas rápidos.",
+        "category": "Herramientas",
+        "type": "tool"
+    },
+    {
+        "title": "Ray.so",
+        "url": "https://ray.so",
+        "description": "Genera imágenes bonitas de código.",
+        "category": "Herramientas",
+        "type": "tool"
+    },
+    {
+        "title": "Hoppscotch",
+        "url": "https://hoppscotch.io",
+        "description": "Cliente HTTP open source, alternativa a Postman.",
+        "category": "Herramientas",
+        "type": "tool"
+    },
+    {
+        "title": "Warp",
+        "url": "https://warp.dev",
+        "description": "Terminal moderna con IA integrada.",
+        "category": "Herramientas",
+        "type": "tool"
+    },
+    {
+        "title": "You Don't Know JS",
+        "url": "https://github.com/getify/You-Dont-Know-JS",
+        "description": "Serie de libros sobre los mecanismos internos de JavaScript.",
+        "category": "Libros",
+        "type": "book"
+    },
+    {
+        "title": "Clean Code",
+        "url": "https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882",
+        "description": "Principios para escribir código legible y mantenible.",
+        "category": "Libros",
+        "type": "book"
+    },
+    {
+        "title": "The Pragmatic Programmer",
+        "url": "https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition",
+        "description": "Guía esencial para el desarrollo de software profesional.",
+        "category": "Libros",
+        "type": "book"
+    },
+    {
+        "title": "Fireship",
+        "url": "https://www.youtube.com/@Fireship",
+        "description": "Videos concisos sobre tecnología y desarrollo web.",
+        "category": "Videos",
+        "type": "video"
+    },
+    {
+        "title": "Theo - t3.gg",
+        "url": "https://www.youtube.com/@t3dotgg",
+        "description": "Opiniones y deep dives sobre el ecosistema TypeScript/React.",
+        "category": "Videos",
+        "type": "video"
+    },
+    {
+        "title": "Tailwind CSS",
+        "url": "https://tailwindcss.com",
+        "description": "Framework CSS utility-first.",
+        "category": "Librerías",
+        "type": "library"
+    },
+    {
+        "title": "Zod",
+        "url": "https://zod.dev",
+        "description": "Validación de esquemas con TypeScript-first.",
+        "category": "Librerías",
+        "type": "library"
+    },
+    {
+        "title": "tRPC",
+        "url": "https://trpc.io",
+        "description": "APIs type-safe end-to-end sin código generado.",
+        "category": "Librerías",
+        "type": "library"
+    },
+    {
+        "title": "Coolors",
+        "url": "https://coolors.co",
+        "description": "Generador de paletas de colores.",
+        "category": "Diseño",
+        "type": "tool"
+    },
+    {
+        "title": "Shots.so",
+        "url": "https://shots.so",
+        "description": "Mockups de dispositivos para presentar proyectos.",
+        "category": "Diseño",
+        "type": "tool"
+    },
+    {
+        "title": "Font Awesome",
+        "url": "https://fontawesome.com",
+        "description": "Librería de íconos vectoriales.",
+        "category": "Diseño",
+        "type": "library"
+    }
+]

@@ -6,50 +6,22 @@ import Icon from "./icon.astro";
 
 <Modal id="cmd">
     <div>
-        <h4>Navigation</h4>
+        <h4 class="m-2">Navigation</h4>
         <NavLink icon="arrow-left" text="Home" href="/" />
         <NavLink icon="arrow-left" text="Blog" href="/blog" />
         <NavLink icon="arrow-left" text="Snippets" href="/snippets" />
     </div>
     <div>
-        <h4>Links</h4>
+        <h4 class="m-2">Links</h4>
         <NavLink icon="folder" text="CV" href="/cv.pdf" target="_blank" />
-        <NavLink
-            icon="github"
-            text="GitHub"
-            href="https://github.com/carlos-burelo"
-            target="_blank"
-        />
+        <NavLink icon="github" text="GitHub" href="https://github.com/carlos-burelo" target="_blank" />
     </div>
 </Modal>
 
 <button
     aria-label="open command"
     onclick='document.querySelector("#cmd").showModal()'
+    class="bg-bg rounded-lg border border-border p-[0.3em] grid place-content-center text-[1.1em] stroke-[1.5] text-fg-icon transition-[color,border-color] duration-200 ease hover:text-primary hover:border-primary"
 >
     <Icon name="command" />
 </button>
-
-<style>
-    h4 {
-        margin: 0.5em;
-    }
-    button {
-        background-color: var(--background-color);
-        border-radius: 0.5em;
-        border: solid 1px var(--border-color);
-        padding: 0.3em;
-        display: grid;
-        place-content: center;
-        font-size: 1.1em;
-        stroke-width: 1.5;
-        color: var(--foreground-color-icon);
-        transition:
-            color 0.2s ease,
-            border-color 0.2s ease;
-    }
-    button:hover {
-        color: var(--primary-color);
-        border-color: var(--primary-color);
-    }
-</style>

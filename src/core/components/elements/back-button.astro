@@ -2,27 +2,11 @@
 import Icon from "./icon.astro";
 ---
 
-<button type="button" onclick="window.history.back()" aria-label="Back button">
+<button
+    type="button"
+    onclick="window.history.back()"
+    aria-label="Back button"
+    class="rotate-180 grid place-items-center text-[1em] w-max bg-bg text-fg-paragraph border border-border rounded p-2 cursor-pointer transition-all duration-200 ease hover:border-primary hover:text-primary"
+>
     <Icon name="arrow-left" />
 </button>
-
-<style>
-    button {
-        transform: rotate(180deg);
-        display: grid;
-        place-items: center;
-        font-size: 1em;
-        width: max-content;
-        background-color: var(--background-color);
-        color: var(--foreground-color-paragraph);
-        border: 1px solid var(--border-color);
-        border-radius: 0.25em;
-        padding: 0.5em;
-        cursor: pointer;
-        transition: all 0.2s ease;
-    }
-    button:hover {
-        border-color: var(--primary-color);
-        color: var(--primary-color);
-    }
-</style>

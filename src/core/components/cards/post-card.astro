@@ -1,37 +1,16 @@
 ---
 import { prettyShortDate } from "#libs/parsers";
+import { toSlug } from "#libs/providers";
 
 const { post } = Astro.props as { post: Post };
+const { data: { createdAt, updatedAt, title }, id } = post;
 
-const {
-    data: { createdAt, updatedAt, title },
-    slug,
-} = post;
-
-const baseDate = prettyShortDate(createdAt);
-const updatedDate = prettyShortDate(updatedAt);
-const isUpdated = createdAt.getTime() != updatedAt.getTime();
-const newDate = isUpdated ? updatedDate : baseDate;
+const slug = toSlug(id);
+const isUpdated = createdAt.getTime() !== updatedAt.getTime();
+const displayDate = prettyShortDate(isUpdated ? updatedAt : createdAt);
 ---
 
-<a href={`/blog/${slug}`}>
+<a href={`/blog/${slug}`} class="flex justify-between items-center p-4 border-b border-border hover:text-primary">
     <p>{title}</p>
-    <time datetime={newDate}>{newDate}</time>
+    <time class="text-[0.8em] text-nowrap" datetime={displayDate}>{displayDate}</time>
 </a>
-
-<style>
-    a {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1em;
-        border-bottom: solid 1px var(--border-color);
-    }
-    a:hover {
-        color: var(--primary-color);
-    }
-    time {
-        font-size: 0.8em;
-        text-wrap: nowrap;
-    }
-</style>

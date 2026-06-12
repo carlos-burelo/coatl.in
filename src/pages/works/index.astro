@@ -1,0 +1,43 @@
+---
+import Root from "../../core/components/layout/root.astro";
+import { getCollection } from "astro:content";
+
+const works = await getCollection("works");
+const sorted = works.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime());
+---
+
+<Root title="Proyectos">
+    <section>
+        <h1 class="text-[2rem] font-semibold">Proyectos</h1>
+        <p class="text-fg-paragraph text-sm">{works.length} proyectos públicos</p>
+        <ul class="grid mt-4">
+            {sorted.map((work) => (
+                <li class="flex items-start justify-between gap-8 py-5 border-b border-border group">
+                    <div class="flex flex-col gap-2 min-w-0">
+                        <h2 class="text-fg-titles font-medium group-hover:text-primary transition-colors">
+                            {work.data.title}
+                        </h2>
+                        <p class="text-fg-paragraph text-sm leading-relaxed">{work.data.description}</p>
+                        <div class="flex flex-wrap gap-2 mt-1">
+                            {work.data.tags.map(tag => (
+                                <span class="text-[0.65em] px-2 py-0.5 rounded border border-border text-fg-paragraph uppercase tracking-wide">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-center shrink-0 pt-1">
+                        <a href={work.data.preview} target="_blank" rel="noopener noreferrer"
+                            class="text-xs text-fg-links hover:text-primary transition-colors whitespace-nowrap">
+                            Preview ↗
+                        </a>
+                        <a href={work.data.repository} target="_blank" rel="noopener noreferrer"
+                            class="text-xs text-fg-links hover:text-primary transition-colors whitespace-nowrap">
+                            GitHub ↗
+                        </a>
+                    </div>
+                </li>
+            ))}
+        </ul>
+    </section>
+</Root>

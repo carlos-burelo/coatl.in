@@ -4,12 +4,13 @@ import Modal from "./modal.astro";
 const { items, path } = Astro.props;
 ---
 
-<header>
+<header class="grid place-content-center py-4">
     <input
         type="text"
         id="fake-searchbar"
         placeholder="Search..."
         aria-label="buscar"
+        class="w-fit"
     />
 </header>
 
@@ -19,11 +20,23 @@ const { items, path } = Astro.props;
         aria-label="searchbox"
         id="real-searchbar"
         autocomplete="off"
+        class="sticky top-[calc(0.5em+3px)]"
     />
-    <ul id="results">
+    <ul id="results" class="grid gap-2 transition-all duration-1000 ease-in-out">
         <a href="/" style="pointer-events: none;">Comienze a escribir algo</a>
     </ul>
 </Modal>
+
+<style>
+    :global(#results a) {
+        padding: 0.5em 1em;
+        background-color: var(--background-color-emphasis);
+        color: var(--primary-color);
+        border-radius: 0.5em;
+        cursor: pointer;
+        animation: pulse ease-in-out;
+    }
+</style>
 
 <script is:inline define:vars={{ items, path }}>
     const fakeSearchBar = document.getElementById("fake-searchbar");
@@ -57,32 +70,3 @@ const { items, path } = Astro.props;
         }
     });
 </script>
-
-<style>
-    header {
-        display: grid;
-        place-content: center;
-        padding-block: 1em;
-    }
-    input#fake-searchbar {
-        width: fit-content;
-    }
-    input#real-searchbar {
-        position: sticky;
-        top: calc(0.5em + 3px);
-    }
-    ul {
-        display: grid;
-        gap: 0.5em;
-        transition: all 1s ease-in-out;
-    }
-
-    :global(#results a) {
-        padding: 0.5em 1em;
-        background-color: var(--background-color-emphasis);
-        color: var(--primary-color);
-        border-radius: 0.5em;
-        cursor: pointer;
-        animation: pulse ease-in-out;
-    }
-</style>

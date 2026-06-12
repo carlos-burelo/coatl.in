@@ -1,3 +1,4 @@
+/* moved to main.css @theme — keeping translucent color-mix vars here */
 :root {
     --percent-color: 8%;
     --red: oklch(63.7% 0.237 25.331);

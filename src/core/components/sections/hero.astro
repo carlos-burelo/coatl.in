@@ -1,59 +1,84 @@
 ---
 import Icon from "#components/elements/icon.astro";
+import { Image } from "astro:assets";
+import logo from "../../../../public/logo.svg";
 ---
 
-<section>
-    <h1>Construyendo Mis Propias Ideas</h1>
-    <h2>Ayudandote a lanzar las tuyas</h2>
-    <p>
-        Desarrollador web con +5 años de experiencia en la creación de
-        soluciones digitales. He liderado proyectos de código abierto y
-        soluciones personalizadas para clientes, lo que ha ampliado mi capacidad
-        para resolver desafíos complejos. Mi interés radica en seguir
-        perfeccionando mis habilidades y conocimientos en el ámbito del
-        desarrollo web
-    </p>
-    <div class="actions">
-        <button>@ Contactame</button>
-        <button>Ver proyectos</button>
-        <div role="separator"></div>
-        <Icon name="github" />
-        <Icon name="linkedin" />
+<section class="relative flex flex-col justify-center min-h-[calc(100dvh-5em)] gap-12 my-0! -mx-body-sm xs:-mx-body-md md:-mx-body-lg xl:-mx-body-xl 2xl:-mx-body-2xl px-body-sm xs:px-body-md md:px-body-lg xl:px-body-xl 2xl:px-body-2xl">
+    <!-- bg glow -->
+    <div class="pointer-events-none fixed top-0 right-0 w-96 h-96 md:w-150 md:h-150 rounded-full bg-primary/5 blur-3xl -z-10"></div>
+    <div class="pointer-events-none fixed bottom-0 left-0 w-64 h-64 md:w-100 md:h-100 rounded-full bg-primary/3 blur-3xl -z-10"></div>
+
+    <div class="relative flex items-center justify-between gap-8 max-md:flex-col-reverse max-md:items-center max-md:text-center">
+        <!-- left col -->
+        <div class="flex flex-col gap-5 max-w-2xl max-md:items-center">
+            <div class="flex items-center gap-2 text-sm text-fg-paragraph w-fit px-3 py-1.5 rounded-full border border-border bg-bg-secondary">
+                <span class="w-2 h-2 rounded-full bg-primary inline-block animate-pulse shrink-0"></span>
+                Disponible para proyectos
+            </div>
+
+            <h1 class="text-3xl xs:text-4xl md:text-5xl font-semibold leading-[1.1] tracking-tight text-fg-titles">
+                Construyendo mis propias ideas,<br/>
+                <span class="text-primary">ayudando a impulsar las tuyas.</span>
+            </h1>
+
+            <p class="text-fg-paragraph leading-relaxed max-w-lg text-sm md:text-base">
+                Más de 8 años desarrollando software para clientes, productos propios y proyectos open source.
+                Me especializo en convertir necesidades complejas en soluciones claras, eficientes y fáciles de mantener.
+            </p>
+
+            <!-- stats row -->
+            <div class="flex gap-6 py-2 border-y border-border w-full max-w-sm max-md:justify-center">
+                <div class="flex flex-col max-md:items-center">
+                    <span class="text-2xl font-bold text-fg-titles">+8</span>
+                    <span class="text-xs text-fg-paragraph">años</span>
+                </div>
+                <div class="w-px bg-border"></div>
+                <div class="flex flex-col max-md:items-center">
+                    <span class="text-2xl font-bold text-fg-titles">+50</span>
+                    <span class="text-xs text-fg-paragraph">proyectos</span>
+                </div>
+                <div class="w-px bg-border"></div>
+                <div class="flex flex-col max-md:items-center">
+                    <span class="text-2xl font-bold text-fg-titles">OSS</span>
+                    <span class="text-xs text-fg-paragraph">open source</span>
+                </div>
+            </div>
+
+            <div class="flex gap-3 items-center flex-wrap max-md:justify-center">
+                <a href="mailto:carlosfernandoburelo@gmail.com" class="px-5 py-2.5 rounded-lg bg-primary text-bg text-sm font-medium whitespace-nowrap hover:bg-primary/90 transition-all duration-200">
+                    @ Contactame
+                </a>
+                <a href="/works" class="px-5 py-2.5 rounded-lg border border-border text-fg-links text-sm font-medium whitespace-nowrap hover:border-primary hover:text-primary transition-all duration-200">
+                    Ver proyectos
+                </a>
+                <div role="separator" class="w-px bg-border h-6 rounded"></div>
+                <a href="https://github.com/carlos-burelo" target="_blank" rel="noopener" class="text-fg-paragraph hover:text-primary transition-colors p-1.5 rounded-lg hover:bg-bg-secondary border border-transparent hover:border-border">
+                    <Icon name="github" />
+                </a>
+                <a href="https://linkedin.com/in/carlos-burelo" target="_blank" rel="noopener" class="text-fg-paragraph hover:text-primary transition-colors p-1.5 rounded-lg hover:bg-bg-secondary border border-transparent hover:border-border">
+                    <Icon name="linkedin" />
+                </a>
+            </div>
+        </div>
+
+        <!-- right col -->
+        <div class="relative shrink-0 flex items-center justify-center w-52 h-52 xs:w-64 xs:h-64 md:w-80 md:h-80 xl:w-96 xl:h-96">
+            <!-- rings -->
+            <div class="absolute inset-0 rounded-full border border-border/30"></div>
+            <div class="absolute inset-5 rounded-full border border-border/15"></div>
+            <!-- tech badges -->
+            <span class="absolute top-2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xs px-2.5 py-1 rounded-full bg-bg-secondary border border-border text-fg-paragraph whitespace-nowrap z-20">TypeScript</span>
+            <span class="absolute bottom-2 left-1/2 -translate-x-1/2 translate-y-1/2 text-xs px-2.5 py-1 rounded-full bg-bg-secondary border border-border text-fg-paragraph whitespace-nowrap z-20">Astro</span>
+            <span class="absolute top-1/2 right-2 translate-x-1/2 -translate-y-1/2 text-xs px-2.5 py-1 rounded-full bg-bg-secondary border border-border text-fg-paragraph whitespace-nowrap z-20">Node.js</span>
+            <Image
+                src={logo}
+                alt="Logo"
+                width={260}
+                height={260}
+                loading="eager"
+                class="relative z-10 opacity-95 w-36 h-36 xs:w-44 xs:h-44 md:w-52 md:h-52 xl:w-56 xl:h-56 object-contain"
+            />
+        </div>
     </div>
 </section>
-
-<style>
-    h1 {
-        font-size: 2.3rem;
-    }
-    h2 {
-        font-size: 2rem;
-    }
-    section {
-        display: grid;
-        align-content: center;
-        min-height: calc(100dvh - (4em));
-    }
-    .actions {
-        display: flex;
-        gap: 1.25em;
-        align-items: center;
-        justify-content: start;
-    }
-    div[role="separator"] {
-        width: 1.5px;
-        background-color: var(--border-color);
-        border-radius: 1px;
-        height: 90%;
-    }
-    button {
-        font-weight: 500;
-        padding: 0.5em 1em;
-        border-radius: 0.5em;
-        background-color: var(--primary-color);
-        color: var(--background-color);
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-</style>

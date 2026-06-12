@@ -3,32 +3,11 @@ import Icon from "./icon.astro";
 const { href, text, icon, target } = Astro.props;
 ---
 
-<a href={href} target={target}>
-    <i><Icon name={icon} /></i>
+<a
+    href={href}
+    target={target}
+    class="p-3 rounded-lg grid grid-flow-col justify-start gap-4 text-fg-links transition-[background-color,color] duration-150 ease-in-out hover:bg-bg-link-hover hover:text-primary"
+>
+    <i class="text-[0.7em] stroke-[2.5] grid place-content-center not-italic"><Icon name={icon} /></i>
     <span>{text}</span>
 </a>
-
-<style>
-    a {
-        padding: 0.75em;
-        border-radius: 0.5em;
-        display: grid;
-        grid-auto-flow: column;
-        justify-content: start;
-        gap: 1em;
-        color: var(--foreground-color-links);
-        transition:
-            background-color 0.15s ease-in-out,
-            color 0.15s ease-in-out;
-    }
-    i {
-        font-size: 0.7em;
-        stroke-width: 2.5;
-        display: grid;
-        place-content: center;
-    }
-    a:hover {
-        background-color: var(--background-color-link-hover);
-        color: var(--primary-color);
-    }
-</style>
